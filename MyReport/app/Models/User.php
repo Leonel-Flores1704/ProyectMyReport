@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'apellido',              // Nuevo campo
+        'fecha_de_nacimiento',   // Nuevo campo
+        'telefono',              // Nuevo campo
     ];
 
     /**

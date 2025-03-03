@@ -9,8 +9,8 @@ class CreateTipoReportesTable extends Migration
     public function up()
     {
         Schema::create('tipos_reporte', function (Blueprint $table) {
-            $table->id('id_tipo_reporte'); // Primary Key
-            $table->string('nombre_del_tipo_reporte');
+            $table->id(); // Primary Key
+            $table->string('nombre');
             $table->timestamps();
         });
     }

@@ -9,16 +9,13 @@ class CreateAdministradoresTable extends Migration
     public function up()
     {
         Schema::create('administradores', function (Blueprint $table) {
-            $table->id('id_admin'); // Primary Key
+            $table->id(); // Primary Key
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('correo')->unique();
-            $table->string('contraseña');
-            $table->unsignedBigInteger('id_tipo_reporte'); // FK de tipos_reporte
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->foreignId('tipo_reporte_id')->constrained('tipos_reporte')->onDelete('cascade');
             $table->timestamps();
-
-            // Clave foránea:
-            $table->foreign('id_tipo_reporte')->references('id_tipo_reporte')->on('tipos_reporte')->onDelete('cascade');
         });
     }
 
