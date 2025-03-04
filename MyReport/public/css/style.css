@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", serif;
+}
+body{
+    background-color: #000000;
+    transition: all 1.2s ease;
+}
+section{
+    color: #fff;
+}
+footer{
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.navegador{
+    background-color: #000000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+}
+.navegador #MR{
+    color: white;
+    font-size: 24px;
+    font-style: italic;
+    margin-right: 50px;
+}
+.navegador .logo{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -100px;
+    margin-top: 0;
+    cursor: pointer;
+    margin-right: auto;
+}
+.navegador .logo img{
+    margin-left: -30px;
+    height: 50px;
+    width: auto;
+    transition: all 0.3;
+    color: white;
+}
+.navegador .logo img:hover{
+    transform: scale(1.2);
+}
+.navegador .nav-links li{
+    display: inline-block;
+    padding: 0 20px;
+}
+.navegador .nav-links li:hover{
+    transform: scale(1.1);
+}
+.navegador .nav-links a{
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+.navegador .nav-links li a:hover{
+    background-color: white;
+    border-radius: 60px;
+    color: black;
+}
+.navegador .btn button{
+    margin-left: 20px;
+    font-size: 20px;
+    color: #fff;
+    background: #3B3B3B;
+    border: none;
+    border-radius: 50px;
+    padding: 9px 25px;
+    cursor: pointer;
+    transform: all 0.3s ease 0s;
+}
+.navegador .btn button:hover{
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+.hero {
+    transition: all 1.2s ease;
+    position: relative;
+    width: auto;
+    height: 650px;
+    background: url('https://imgs.search.brave.com/MFf_1CTHGcHneYyFgPzwc6RCRJMaZmeooWilaabIDPE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTMz/OTY0MzEzL2VzL2Zv/dG8vcm9hZC1kYSVD/MyVCMW9zLWJhY2hl/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1vZGRVcElEanhU/MnBEbDBJTlAySk9M/SmpRN1YwV29fUGpi/UzB4ajRlR1pvPQ') center/cover no-repeat; /* Imagen de fondo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Efecto de oscurecimiento */
+.hero::before {
+    transition: all 1.2s ease;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Oscurece la imagen */
+    z-index: 1;
+}
+
+.contenido {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    width: auto;
+    margin-right: 120vh;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.subtitulo {
+    margin-top: 10px; margin-bottom: 25px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Estilos del botón */
+.boton {
+    width: 236px;
+    background: rgba(120, 120, 120, 0.85);
+    color: black;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background-color: #fff;
+}
+
+/* Ubicación */
+.ubicacion {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+}
+
+.ubicacion i {
+    color: white;
+}
+.Titulo{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    color: #fff;
+    width: auto;
+}
+.Titulo h1{
+    width: 600px;
+    text-align: center;
+    border-radius: 100px;
+    /* background: linear-gradient(to top, #ffffff6e, #0000006b); */
+}
+.movimiento{
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    flex: 0 0 100%;
+    scrollbar-width: none;
+    margin-bottom: 50px;
+}
+.carrusel{
+    scroll-snap-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    margin-left: 80px;
+    margin-top: 50px;
+    width: auto;
+    color: #fff;
+    background-color: #252525;
+}
+.left{
+    flex: 1;
+}
+.left h1{
+    padding: 25px 15px 0 25px;
+}
+.left p{
+    width: 300px;
+    margin-left: 25px;
+}
+.left button{
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+.left .boton:hover{
+    color: #fff;
+    background-color: #4f4f4f;
+}
+.fotos{
+    position: relative;
+    width: 300px;
+    margin-right: 10px;
+}
+.fotos img {
+    width: 100%;
+    border-radius: 10px;
+}
+.fotos p{
+    color: #fff;
+    text-align: center;
+}
+.mision_vision{
+    color: #fff;
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    margin-top: 150px;
+    margin-bottom: 80px;
+}
+.cards{
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    background-color: #252525;
+    width: 650px;
+    height: 550px;
+}
+.cards img{
+    width: 400px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+.content h1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.content p{
+    max-width: 600px;
+    text-align: left;
+    margin-left: 45px;
+}
+.titulos h3{
+    padding: 50px;
+}
+.info{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 50px;
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+.info i{
+    margin-right: 50px;
+}
+.log_in{
+    display: flex;
+    justify-content: center;
+    margin: 80px 120px;
+    margin-top: 10px;
+}
+.recuadro{
+    border-radius: 30px;
+    width: 1080px;
+    background-color: #121212;
+}
+.recuadro div h1{
+    margin-top: -10px;
+    margin-bottom: -30px;
+}
+.recuadro .botones{
+    padding: 30px 15px 0px 15px;
+    display: flex;
+    justify-content: center;
+}
+.botones a{
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+.botones #btn1{
+    background-color: #A2A2A2;
+    color: black;
+}
+.botones #btn2{
+    background-color: black;
+    color: white;
+}
+.botones a{
+    cursor: pointer;
+    width: 800px;
+    border-radius: 10px;
+    font-size: 28px;
+}
+.botones a p{
+    margin: 10px;
+}
+.contenido_rec{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+.contenido_rec div input{
+    width: 600px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #252525;
+    border-color: #fff;
+    border-width: 0.1px;
+    color: #fff;
+    font-size: 24px;
+}
+.contenido_rec div p{
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.log_in .recuadro #MR{
+    margin-top: 0px;
+}
+.log_in .recuadro #sign_up_w_google{
+    display: flex;
+    justify-content: center;
+}
+.log_in .recuadro #sign_up_w_google div{
+    background-color: #252525;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    width: 850px;
+    
+}
+.log_in .recuadro #sign_up_w_google div a p{
+    margin: 5px;
+}
+.log_in .recuadro #sign_up_w_google a{
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
+}
+#terminos{
+    color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+#terms{
+    margin-left: 40px;
+    width: 30px; height: 30px;
+}
+#fpss{
+    text-align: right;
+    margin-top: 20px;
+}
+#fpss a{
+    color: #535252;
+}
+#fpss a:hover{
+    color: #4e77ffae;
+}
+#aceptar{
+    width: 600px;
+    background: linear-gradient(90deg, #ffffff6e, #0000006b);
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+}
+.botones #aceptar {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    color: #fff;
+    border-radius: 15px;
+}
+#acomodo{
+    text-align: center;
+    margin-right: 50px;
+}
+#acomodo .info{
+    justify-content: center;
+}
+#toggle{
+    display: none;
+}
+#lbl_toggle{
+    position: absolute;
+    right: 95px;
+    font-size: 50px;
+    
+}
+#lbl_toggle i{
+    color: #fff;
+    cursor: pointer;
+}
+#log_in #salir{
+    background-color: white;
+    width: 50px;
+}
+#registro{
+    margin-left: 85px;
+}
+#registro div{
+    
+    margin-bottom: 20px;
+}
+#registro div input{
+    width: 870px;
+}
+.recuadro #logo_in{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.recuadro #logo_in img{
+    width: 80px;
+    margin-left: 15px;
+}
+.recuadro #MR{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: -35px;
+    font-style: italic;
+}
+.recuadro div{
+    margin-top: -15px;
+}
+.recuadro .contenido_rec .user #usuario{
+    margin-top: -10px;
+    margin-bottom: 2px;
+}
+.recuadro .contenido_rec .password #contra{
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+.recuadro #terminos{
+    margin-top: -18px;
+}
+.contenido_register{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 120px;
+    margin-bottom: 20px;
+}
+.contenido_register .contenido_rec .user input{
+    width: 400px;
+}
+/* A partir de aqui empieza el modo claro*/
+.lightmode{
+    /* afecta al body */
+    background-color: #fff;
+    transition: all 1.2s ease;
+}
+.lm{
+    /* afecta al heder */
+    background-color: #fff;
+}
+.lm .logo img{
+    color: black;
+}
+.lm #MR{
+    color: #000000;
+}
+.lm .nav-links li:hover{
+    transform: scale(1.1);
+}
+.lm .nav-links a{
+    color: #000000;
+}
+.lm .nav-links li a:hover{
+    background-color: rgba(59, 59, 59, 0.27);
+    color: black;
+}
+.lm .btn button{
+    color: #000000;
+    background: #777BB2;
+}
+.lm .btn button:hover{
+    background-color: #777BB2;
+    color: black;
+    transform: scale(1.1);
+}
+.nFondo{
+    background: url("https://media.istockphoto.com/id/895120000/es/foto/peligroso-bache-en-el-camino-rural-asfaltado-da%C3%B1os-de-la-carretera.jpg?s=2048x2048&w=is&k=20&c=nBCKYeHGQ1hGUz6XeAtCJQ14awWOgQkI1B20xjTGIHo=") center/cover no-repeat;
+    transition: all 1.2s ease;
+}
+.nFondo::before{
+    transition: all 1.2s ease;
+    background: rgba(0, 0, 0, 0.3); /* Oscurece la imagen */
+}
+.nFondo .boton{
+    background: rgba(255, 255, 255, 0.85);
+}
+.Titulo_lm{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    color: #000;
+    padding: 50px 0;
+}
+.carrusel_lm .carrusel{
+    background-color: #E0E0E0;
+    color: #030303;
+}
+.carrusel_lm .titulo{
+    color: #031C39;
+}
+.carrusel_lm .fotos p{
+    color: #030303;
+}
+.cards_lm .cards{
+    background-color: #E0E0E0;
+    color: #000;
+}
+.footer_lm{
+    background-color: #031C39;
+}
+
+/* Log-in en lightmode */
