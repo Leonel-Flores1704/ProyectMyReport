@@ -14,12 +14,12 @@
     <header id ="barra" class="navegador">
         <div class="logo">
             <h1 id="MR">MyReport</h1>
-            <img src="{{ asset('Imagenes/Logo.png') }}" alt="Aqui va el logo" id="logo">
+            <img src="{{ asset('Imagenes/Logo.svg') }}" alt="Aqui va el logo" id="logo">
         </div>
         <nav>
             <ul class="nav-links">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="/reports">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
             </ul>
@@ -138,6 +138,7 @@
             </div>
         </div>
      </section>
+     
      <footer id="ft_lm">
         <div class="titulos">
             <h3>Contactanos</h3>
