@@ -14,11 +14,11 @@
     <header id ="barra" class="navegador">
         <div class="logo">
             <h1 id="MR">MyReport</h1>
-            <img src="Imagenes/Logo.png" alt="Aqui va el logo" id="logo">
+            <img src="{{ asset('Imagenes/Logo.png') }}" alt="Aqui va el logo" id="logo">
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="/">Inicio</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
@@ -55,7 +55,7 @@
                 <button class="boton"> ¡Reporta Ya! </button>
             </div>
             <div class="fotos">
-                <img src="Imagenes/slide-1.jpg" alt="error">    
+                <img src="{{ asset('Imagenes/slide-1.jpg') }}" alt="error">    
                 <p>Calle Torreon</p>
             </div>
             
@@ -67,7 +67,7 @@
                 <button class="boton"> ¡Reporta Ya! </button>
             </div>
             <div class="fotos">
-                <img src="Imagenes/Alumbrado.jpg" alt="error">    
+                <img src="{{ asset('Imagenes/Alumbrado.jpg') }}" alt="error">    
                 <p>Tierra y libertad</p>
             </div>
         </div>
@@ -78,7 +78,7 @@
                 <button class="boton"> ¡Reporta Ya! </button>
             </div>
             <div class="fotos">
-                <img src="Imagenes/Focos-infeccion.avif" alt="error">    
+                <img src="{{ asset('Imagenes/Focos-Infeccion.avif') }}" alt="error">    
                 <p>Primo de verdad</p>
             </div>
             
@@ -90,7 +90,7 @@
                 <button class="boton"> ¡Reporta Ya! </button>
             </div>
             <div class="fotos">
-                <img src="Imagenes/Imagen-fondo.jpg" alt="error">    
+                <img src="{{ asset('Imagenes/Imagen-fondo.jpg') }}" alt="error">    
                 <p>Calle Torreon</p>
             </div>
             
@@ -102,7 +102,7 @@
                 <button class="boton"> ¡Reporta Ya! </button>
             </div>
             <div class="fotos">
-                <img src="Imagenes/Imagen-fondo.jpg" alt="error">    
+                <img src="{{ asset('Imagenes/Imagen-fondo.jpg') }}" alt="error">    
                 <p>Calle Torreon</p>
             </div>
             
@@ -114,7 +114,7 @@
                 <button class="boton"> ¡Reporta Ya! </button>
             </div>
             <div class="fotos">
-                <img src="Imagenes/Imagen-fondo.jpg" alt="error">    
+                <img src="{{ asset('Imagenes/Imagen-fondo.jpg') }}" alt="error">    
                 <p>Calle Torreon</p>
             </div>
             
