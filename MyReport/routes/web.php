@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\ReporteController;
+Route::post('/upload-images', [ReporteController::class, 'upload'])->name('upload.images');
+
+Route::post('/reportes', [ReporteController::class, 'store'])->name('reportes.store');
 
 Route::get('/', function () {
     return view('welcome');
