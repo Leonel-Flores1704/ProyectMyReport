@@ -22,8 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'apellido',              // Nuevo campo
-        'fecha_de_nacimiento',   // Nuevo campo
-        'telefono',              // Nuevo campo
+        'last_name',              // Asegúrate de que este campo esté presente
+        'birthdate',              // Nuevo campo
     ];
 
     /**

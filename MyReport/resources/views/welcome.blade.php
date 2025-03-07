@@ -22,15 +22,15 @@
                 <li><a href="/reports">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
+                
             </ul>
         </nav>
-        <a href="Sign_up.html" class="btn"><button>Log in</button></a>
+        <a href="{{ route('login') }}" class="btn"><button>Login</button></a>
         <label for="toggle" id="lbl_toggle">
             <i class="fa-solid fa-sun" id="icon"></i>
         </label>
         <input type="checkbox" id="toggle">
     </header>
-
     <section id="fondo" class="hero">
         <div class="contenido">
             <h1> TU VOZ CUENTA, REPORTA, <br> MEJORA, TRANSFORMA </h1>
@@ -122,7 +122,7 @@
     </section>
 
     <!-- A partir de aqui va el mision y visión -->
-     <section class="mision_vision" id="mv_lm">
+    <section class="mision_vision" id="mv_lm">
         <div class="cards">
             <div class="content">
                 <h1>Misión</h1>
@@ -137,9 +137,11 @@
                 <p>Ser la plataforma lider en el reporte y seguimiento de problematicas sociales relacionadas con la contaminacion ambiental, seguridad, y vialidad.<br>MyReport busca disminuir en gran parte las de problematicas actuales que normalmente no son atendidas de manera inmediata colaborando con las respectivas autoridades.</p>
             </div>
         </div>
-     </section>
-     
-     <footer id="ft_lm">
+    </section>
+    
+    <footer id="ft_lm">
+    </section>
+    <footer id="ft_lm">
         <div class="titulos">
             <h3>Contactanos</h3>
             <div class="info">
@@ -179,7 +181,7 @@
                 <p>©2025 MyReport<br>Todos los derechos reservados</p>
             </div>
         </div>
-     </footer>
-     <script src="{{ asset('js/back.js') }}"></script>
+    </footer>
+    <script src="{{ asset('js/back.js') }}"></script>
 </body>
 </html>

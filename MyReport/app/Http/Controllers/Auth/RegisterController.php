@@ -69,6 +69,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'last_name' => $data['last_name'],
             'birthdate' => $data['birthdate'],
             'age' => Carbon::parse($data['birthdate'])->age, // Calcula la edad automáticamente
             'email' => $data['email'],
