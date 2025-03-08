@@ -18,7 +18,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="/reports">Reports</a></li>
+                <li><a href="/MyReport/public/reports">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
                 
