@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'google_id',              // Nuevo campo
         'apellido',              // Nuevo campo
         'last_name',              // Asegúrate de que este campo esté presente
         'birthdate',              // Nuevo campo
