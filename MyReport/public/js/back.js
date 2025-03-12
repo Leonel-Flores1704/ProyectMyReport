@@ -119,6 +119,7 @@ document.getElementById("file-upload")?.addEventListener("change", function() {
         reader.readAsDataURL(file);
     });
 });
+
 //Fin codigo chatgpt
 opciones?.addEventListener("change",function(){
     

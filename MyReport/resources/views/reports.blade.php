@@ -317,7 +317,7 @@
             </div>
         </div>
     </section>
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/dropdown.js') }}"></script>
+    <script src="{{ asset('js/back.js') }}"></script>
+    <script src="{{ asset('js/back.js') }}"></script>
 </body>
 </html>
