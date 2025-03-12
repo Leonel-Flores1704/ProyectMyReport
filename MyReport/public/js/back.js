@@ -19,16 +19,21 @@ function aplicarTema(modo) {
     
     document.body.classList.toggle("lightmode", modo === "claro");
 
+    let tipo = document.getElementById("tipo");
     if (barra) barra.classList.toggle("lm", modo === "claro");
     if (fondo) fondo.classList.toggle("nFondo", modo === "claro");
     if (prueba) prueba.classList.toggle("carrusel_lm", modo === "claro");
     if (mv_lm) mv_lm.classList.toggle("cards_lm", modo === "claro");
     if (ft_lm) ft_lm.classList.toggle("footer_lm", modo === "claro");
     if (light_mode_report) light_mode_report.classList.toggle("recuadros_lm", modo === "claro");
+
     if (TLM) {
         TLM.classList.replace(modo === "claro" ? "Titulo" : "Titulo_lm", modo === "claro" ? "Titulo_lm" : "Titulo");
-    }
-
+    };
+    if (tipo) {
+        tipo.classList.toggle("tipo_lm", modo === "claro");
+    };
+    
     if (icon) {
         if (modo === "claro") {
             icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="black" class="bi bi-moon" viewBox="0 0 16 16">
@@ -64,8 +69,8 @@ function aplicarTema(modo) {
                             <div class="ajuste">
                                     <div id="preview"></div>
                             </div>`;
-        }
-    }
+        };
+    };
     localStorage.setItem("modo", modo);
 }
 
@@ -164,10 +169,37 @@ document.getElementById("IB")?.addEventListener("change", function() {
     };
     if(this.checked){
         InsertarUbicacion.innerHTML = 
-        `<select name="options" id="tipo">
-            <option value="Colonia/fracc">Colonia o Fraccionamiento</option>
-            <option value="Boulevard/carretera">Calle</option>
-        </select>   
+        `<h4 class="alineacion">Escoger entre ...</h4>
+        <select name="options" id="tipo" class="tipo_dm">
+            <option value="Colonia">Colonia o Fraccionamiento</option>
+            <option value="Boulevard">Boulevard o Carretera</option>
+        </select>
+        <h4 class="alineacion" id="Nombre_">Nombre de colonia o fraccionamiento</h4>
+        <textarea id="NombreColonia" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+        <div class="calles">
+            <div class="calle">
+                <h4 class="alineacion">Entre calle 1</h4>
+                <textarea id="NombreCalle1" rows="1" oninput="autoResize(this)"></textarea>
+            </div>
+            <div class="calle">
+                <h4 class="alineacion">Entre calle 2</h4>
+                <textarea id="NombreCalle2" rows="1" oninput="autoResize(this)"></textarea>
+            </div>
+        </div>
         `;
     };
+});
+document.addEventListener("change", function (event) {
+    
+    if (event.target && event.target.id === "tipo") {
+        if (event.target.value === "Colonia") {
+            document.getElementById("NombreCalle1").disabled = false;
+            document.getElementById("NombreCalle2").disabled = false;
+            document.getElementById("Nombre_").innerHTML = "Nombre de colonia o fraccionamiento";
+        } else {
+            document.getElementById("NombreCalle1").disabled = true;
+            document.getElementById("NombreCalle2").disabled = true;
+            document.getElementById("Nombre_").innerHTML = "Nombre de boulevard o carretera";
+        };
+    }; 
 });

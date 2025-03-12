@@ -18,7 +18,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="/reports">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
             </ul>
@@ -87,9 +87,9 @@
                     
                 </div>
                 <h4 class="alineacion">Descripcion de la ubicacion</h4>
-                <textarea id="autoTextarea" rows="1" oninput="autoResize(this)"></textarea>
+                <textarea id="DescripcionUbicacion" rows="1" oninput="autoResize(this)"></textarea>
                 <h4 class="alineacion">Descripcion de los hechos</h4>
-                <textarea id="autoTextarea_" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
+                <textarea id="DescripcionHechos" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
                 <form action="{{ route('upload.images') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <label for="images" id="idk">Sube hasta 3 imágenes:</label>
