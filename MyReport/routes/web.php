@@ -24,6 +24,10 @@ Route::get('/', function () {
 Route::get('/reports', function () {
     return view('reports');
 });
+Route::get('/terminos-y-condiciones', function () {
+    return view('terminos'); // Aquí cambiarás 'terminos' por el nombre del archivo de vista
+});
+
 
 Auth::routes();
 

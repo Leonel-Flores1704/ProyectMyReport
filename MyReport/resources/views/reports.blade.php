@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header id ="barra" class="navegador">
+    </li>
+    </div>
+    <header id="barra" class="navegador">
         <div class="logo">
             <h1 id="MR">MyReport</h1>
             <img src="{{ asset('Imagenes/Logo.png') }}" alt="Aqui va el logo" id="logo">
@@ -18,12 +20,24 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="/reports">Reports</a></li>
+                <li><a href="#">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
             </ul>
         </nav>
-        <a href="Sign_up.html" class="btn"><button>Log in</button></a>
+        
+        <!-- Aquí verificamos si el usuario está autenticado -->
+        @if (Auth::check())
+            <!-- Si el usuario está autenticado, mostramos el botón de logout -->
+            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="btn">Log out</button>
+            </form>
+        @else
+            <!-- Si no está autenticado, mostramos el botón de login -->
+            <a href="{{ route('login') }}" class="btn"><button>Log in</button></a>
+        @endif
+        
         <label for="toggle" id="lbl_toggle">
             <div id="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-low" viewBox="0 0 16 16">
@@ -33,6 +47,7 @@
         </label>
         <input type="checkbox" id="toggle">
     </header>
+
     <section class="Separacion" id="light_mode_report">
         <div class="recuadros">
             <div class="manual">
@@ -83,13 +98,11 @@
                         <p>Insertar ubicacion</p>
                     </div>
                 </div>
-                <div id="InsertarUbicacion">
-                    
-                </div>
+                <div id="InsertarUbicacion"></div>
                 <h4 class="alineacion">Descripcion de la ubicacion</h4>
-                <textarea id="DescripcionUbicacion" rows="1" oninput="autoResize(this)"></textarea>
+                <textarea id="autoTextarea" rows="1" oninput="autoResize(this)"></textarea>
                 <h4 class="alineacion">Descripcion de los hechos</h4>
-                <textarea id="DescripcionHechos" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
+                <textarea id="autoTextarea_" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
                 <form action="{{ route('upload.images') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <label for="images" id="idk">Sube hasta 3 imágenes:</label>
@@ -118,48 +131,8 @@
             </div>
         </div>
     </section>
-    <footer id="ft_lm">
-        <div class="titulos">
-            <h3>Contactanos</h3>
-            <div class="info">
-                <i class="fa-solid fa-phone"></i>
-                <p>+(52) 618-298-76-54</p>
-            </div>
-            <div class="info">
-                <i class="fa-regular fa-envelope"></i>
-                <p>MyReport.HRL@gmail.com</p>
-            </div>
-            <div class="info">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Durango,Dgo Mexico</p>
-            </div>
-        </div>
-        <div class="titulos">
-            <h3>Redes Sociales</h3>
-            <div class="info">
-                <i class="fa-brands fa-facebook"></i>
-                <p>MyReport</p>
-            </div>
-            <div class="info">
-                <i class="fa-brands fa-instagram"></i>
-                <p>My_Report</p>
-            </div>
-            <div class="info">
-                <i class="fa-brands fa-x-twitter"></i>
-                <p>My_Report</p>
-            </div>
-        </div>
-        <div class="titulos" id="acomodo">
-            <h3>Acción Social</h3>
-            <div class="info">
-                <p>@HRL2025</p>
-            </div>
-            <div class="info" >
-                <p>©2025 MyReport<br>Todos los derechos reservados</p>
-            </div>
-        </div>
-     </footer>
-
+    <!-- <script src="{{ asset('js/script.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/dropdown.js') }}"></script> -->
     <script src="{{ asset('js/back.js') }}"></script>
 </body>
 </html>
