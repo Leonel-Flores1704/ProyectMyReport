@@ -32,13 +32,14 @@ footer{
     color: white;
     font-size: 24px;
     font-style: italic;
+    margin-top: 15px;
     margin-right: 50px;
 }
 .navegador .logo{
     display: flex;
     justify-content: flex-start;
     margin-left: -100px;
-    margin-top: 0;
+    margin-top: -15px;
     cursor: pointer;
     margin-right: auto;
 }
@@ -52,9 +53,23 @@ footer{
 .navegador .logo img:hover{
     transform: scale(1.2);
 }
+/* .navegador nav .nav-links{
+    
+    
+} */
 .navegador .nav-links li{
     display: inline-block;
     padding: 0 20px;
+    margin-top: 15px;
+}
+.navegador .nav-links form button{
+    width: 50px;
+    margin-right: 10px;
+}
+.navegador .nav-links form button svg{
+    justify-content: center;
+    margin-left: -10px;
+    margin-top: -5px;
 }
 .navegador .nav-links li:hover{
     transform: scale(1.1);

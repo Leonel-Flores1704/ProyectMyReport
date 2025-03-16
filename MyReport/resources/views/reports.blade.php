@@ -23,29 +23,37 @@
                 <li><a href="#">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
+                <li id="icon_user">
+
+                    @if (Auth::check())
+                        <!-- Si el usuario está autenticado, mostramos el botón de logout -->
+                        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                </svg>
+                            </button>
+                        </form>
+                    @else
+                        <!-- Si no está autenticado, mostramos el botón de login -->
+                        <a href="{{ route('login') }}" class="btn"><button>Log in</button></a>
+                    @endif
+                </li>
             </ul>
         </nav>
-        
-        <!-- Aquí verificamos si el usuario está autenticado -->
-        @if (Auth::check())
-            <!-- Si el usuario está autenticado, mostramos el botón de logout -->
-            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                @csrf
-                <button type="submit" class="btn">Log out</button>
-            </form>
-        @else
-            <!-- Si no está autenticado, mostramos el botón de login -->
-            <a href="{{ route('login') }}" class="btn"><button>Log in</button></a>
-        @endif
-        
         <label for="toggle" id="lbl_toggle">
             <div id="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-low" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
                     <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8m.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707"/>
                 </svg>
             </div>
         </label>
         <input type="checkbox" id="toggle">
+
+        <!-- Aquí verificamos si el usuario está autenticado -->
+
     </header>
 
     <section class="Separacion" id="light_mode_report">
@@ -131,6 +139,66 @@
             </div>
         </div>
     </section>
+    <footer id="ft_lm">
+        <div class="titulos">
+            <h3>Contactanos</h3>
+            <div class="info">
+                <i class="fa-solid fa-phone"></i>
+                <p>+(52) 618-298-76-54</p>
+            </div>
+            <div class="info">
+                <i class="fa-regular fa-envelope"></i>
+                <p>MyReport.HRL@gmail.com</p>
+            </div>
+            <div class="info">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Durango,Dgo Mexico</p>
+            </div>
+        </div>
+        <div class="titulos">
+            <h3>Redes Sociales</h3>
+            <div class="info">
+                <i class="fa-brands fa-facebook"></i>
+                <p>MyReport</p>
+            </div>
+            <div class="info">
+                <i class="fa-brands fa-instagram"></i>
+                <p>My_Report</p>
+            </div>
+            <div class="info">
+                <i class="fa-brands fa-x-twitter"></i>
+                <p>My_Report</p>
+            </div>
+        </div>
+        <div class="titulos" id="acomodo">
+            <h3>Acción Social</h3>
+            <div class="info">
+                <p>@HRL2025</p>
+            </div>
+            <div class="info" >
+                <p>©2025 MyReport<br>Todos los derechos reservados</p>
+            </div>
+        </div>
+        <!-- <div class="card-home">
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+                        
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+        </div> -->
+    </footer>
     <!-- <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/dropdown.js') }}"></script> -->
     <script src="{{ asset('js/back.js') }}"></script>
