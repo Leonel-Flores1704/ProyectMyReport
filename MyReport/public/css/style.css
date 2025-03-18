@@ -53,10 +53,6 @@ footer{
 .navegador .logo img:hover{
     transform: scale(1.2);
 }
-/* .navegador nav .nav-links{
-    
-    
-} */
 .navegador .nav-links li{
     display: inline-block;
     padding: 0 20px;
@@ -73,6 +69,7 @@ footer{
 }
 .navegador .nav-links li:hover{
     transform: scale(1.1);
+    
 }
 .navegador .nav-links a{
     display: inline-block;
@@ -85,6 +82,9 @@ footer{
     background-color: white;
     border-radius: 60px;
     color: black;
+}
+.navegador .nav-links #icon_user a:hover{
+    background-color: black;
 }
 .navegador .btn button{
     margin-left: 20px;
@@ -303,6 +303,23 @@ h1 {
     align-items: center;
     height: 100%;
 }
+.campos #fecha_lm{
+    margin-top: -50px;
+    display: flex;
+    justify-content: end;
+}
+.campos #fecha_lm p{
+    margin-right: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.campos #fecha_lm input{
+    padding-left: 10px;
+    background-color: none;
+    color: white;
+    border-radius: 10px;
+    height: 30px;
+}
 .campos h4, select, div, form {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -393,7 +410,7 @@ form #idk{
     margin-bottom: -20px;
 }
 /* Codigo chatgtp */
-.custom-file-upload {
+.custom-imagen_referencia {
     width: 600px;
     /* height: 50px; */
     background-color: #1a1a1a;
@@ -410,7 +427,7 @@ input[type="file"] {
 display: none;
 }
 /* Fin codigo chatgpt */
-.custom-file-upload p{
+.custom-imagen_referencia p{
     width: 130px;
     font-size: 16px;
     text-align: center;
@@ -422,7 +439,13 @@ display: none;
     padding: 5px;
     color: white;
 }
-
+.recuadros #opciones{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    width: 600px;
+    margin-bottom: 10px;
+}
 .radio_botones{
     display: flex;
     justify-content: space-between;
@@ -561,7 +584,7 @@ display: none;
     margin-left: 40px;
     width: 30px; height: 30px;
 }
-#fpss{
+/* #fpss{
     text-align: right;
     margin-top: 20px;
 }
@@ -570,7 +593,7 @@ display: none;
 }
 #fpss a:hover{
     color: #4e77ffae;
-}
+} */
 #aceptar{
     width: 600px;
     background: linear-gradient(90deg, #ffffff6e, #0000006b);
@@ -698,6 +721,9 @@ display: none;
     color: black;
     transform: scale(1.1);
 }
+.lm .nav-links #icon_user a:hover{
+    background-color: white;
+}
 .nFondo{
     background: url("https://media.istockphoto.com/id/895120000/es/foto/peligroso-bache-en-el-camino-rural-asfaltado-da%C3%B1os-de-la-carretera.jpg?s=2048x2048&w=is&k=20&c=nBCKYeHGQ1hGUz6XeAtCJQ14awWOgQkI1B20xjTGIHo=") center/cover no-repeat;
     transition: all 1.2s ease;
@@ -733,6 +759,28 @@ display: none;
 .footer_lm{
     background-color: #031C39;
 }
-
-/* Log-in en lightmode */
-
+.recuadros_lm .manual{
+    background-color: #031C39;
+    color: #fff;
+}
+.recuadros_lm .campos{
+    background-color: #F6F6F6;
+    color: #000;
+}
+.recuadros_lm .campos #opciones{
+    background-color: #FFF;
+    color: #000;
+}
+.recuadros_lm .campos textarea{
+    background-color: #FFF;
+    color: #000;
+}
+.recuadros_lm .campos form .centro label{
+    background-color: #FFF;
+    color: #000;
+    border-color: #000;
+}
+.fecha_lm input{
+    background-color: #AEAEAE;
+    color: red;
+}

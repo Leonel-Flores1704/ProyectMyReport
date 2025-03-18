@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    </li>
-    </div>
     <header id="barra" class="navegador">
         <div class="logo">
             <h1 id="MR">MyReport</h1>
@@ -24,7 +22,7 @@
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
                 <li id="icon_user">
-
+                    
                     @if (Auth::check())
                         <!-- Si el usuario está autenticado, mostramos el botón de logout -->
                         <form action="{{ route('logout') }}" method="POST" style="display:inline;">
@@ -85,37 +83,41 @@
         </div>
         <div class="recuadros">
             <div class="campos">
-                <h4 class="alineacion">Tipo de problematica ocurrida</h4>
-                <select name="options" id="opciones">
-                    <option value="Select">Seleccione su problemática a reportar</option>
-                    <option value="Baches">Baches</option>
-                    <option value="Semaforos_apagados">Semaforos apagados</option>
-                    <option value="Focos_infeccion">Focos de infección</option>
-                    <option value="Plazas_sucias">Plazas sucias</option>
-                    <option value="Terrenos_baldios">Terrenos baldíos</option>
-                    <option value="Alumbrado_publico">Alumbrado público</option>
-                </select>
-                <h4 class="alineacion">Ubicación</h4>
-                <div class="radio_botones">
-                    <div class="radio_group">
-                        <input type="radio" name="ubicacion_tiempo_real" id="TR">
-                        <p>Ubicacion en tiempo real</p>
-                    </div>
-                    <div class="radio_group">
-                        <input type="radio" name="insertar_ubicacion" id="IB">
-                        <p>Insertar ubicacion</p>
-                    </div>
-                </div>
-                <div id="InsertarUbicacion"></div>
-                <h4 class="alineacion">Descripcion de la ubicacion</h4>
-                <textarea id="autoTextarea" rows="1" oninput="autoResize(this)"></textarea>
-                <h4 class="alineacion">Descripcion de los hechos</h4>
-                <textarea id="autoTextarea_" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
-                <form action="{{ route('upload.images') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('guardar.reporte') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <div id="fecha_lm">
+                        <p>Fecha de registro</p>
+                        <input name ="fecha_reporte"type="date" id="fechaActual" disabled>
+                    </div>
+                    <h4 class="alineacion">Tipo de problematica ocurrida</h4>
+                    <select name="options" id="opciones">
+                        <option value="Select">Seleccione su problemática a reportar</option>
+                        <option value="Baches">Baches</option>
+                        <option value="Semaforos_apagados">Semaforos apagados</option>
+                        <option value="Focos_infeccion">Focos de infección</option>
+                        <option value="Plazas_sucias">Plazas sucias</option>
+                        <option value="Terrenos_baldios">Terrenos baldíos</option>
+                        <option value="Alumbrado_publico">Alumbrado público</option>
+                    </select>
+                    <h4 class="alineacion">Ubicación</h4>
+                    <div class="radio_botones">
+                        <div class="radio_group">
+                            <input type="radio" name="ubicacion_tiempo_real" id="TR">
+                            <p>Ubicacion en tiempo real</p>
+                        </div>
+                        <div class="radio_group">
+                            <input type="radio" name="insertar_ubicacion" id="IB">
+                            <p>Insertar ubicacion</p>
+                        </div>
+                    </div>
+                    <div id="InsertarUbicacion"></div>
+                    <h4 class="alineacion">Descripcion de la ubicacion</h4>
+                    <textarea name="descripcion_ubicacion"id="autoTextarea" rows="1" oninput="autoResize(this)"></textarea>
+                    <h4 class="alineacion">Descripcion de los hechos</h4>
+                    <textarea name= "descripcion_problematica"id="autoTextarea_" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
                     <label for="images" id="idk">Sube hasta 3 imágenes:</label>
                     <div class="centro">
-                        <label for="file-upload" class="custom-file-upload" id="icon_img">
+                        <label for="imagen_referencia" class="custom-imagen_referencia" id="icon_img">
                             <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16" >
                                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
                                 <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/>
@@ -131,7 +133,7 @@
                             </div>
                         </label>
                     </div>
-                    <input id="file-upload" type="file" name="file-upload[]" accept="image/*" multiple required>
+                    <input id="imagen_referencia" type="file" name="imagen_referencia[]" accept="image/*" multiple required>
                     <div class="centro">
                         <button type="submit">Subir</button>
                     </div>
@@ -179,25 +181,7 @@
                 <p>©2025 MyReport<br>Todos los derechos reservados</p>
             </div>
         </div>
-        <!-- <div class="card-home">
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                </a>
-                        
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-        </div> -->
+        
     </footer>
     <!-- <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/dropdown.js') }}"></script> -->

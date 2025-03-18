@@ -5,9 +5,7 @@ use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
-Route::post('/upload-images', [ReporteController::class, 'upload'])->name('upload.images');
-
-Route::post('/reportes', [ReporteController::class, 'store'])->name('reportes.store');
+Route::post('/guardar-reporte', [ReporteController::class, 'store'])->name('guardar.reporte');
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,7 +17,6 @@ Route::get('/reports', function () {
 Route::get('/terminos-y-condiciones', function () {
     return view('terminos'); // terminos
 });
-
 
 Route::get('/auth/google', [SocialiteController::class, 'redirectToGoogle']);
 Route::get('/auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);

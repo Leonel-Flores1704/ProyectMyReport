@@ -10,6 +10,8 @@ class ReporteController extends Controller
     {
         // Validación de los datos
         $request->validate([
+            'calle1' => 'nullable|string',
+            'calle2' => 'nullable|string',
             'descripcion_problematica' => 'required|string',
             'calle' => 'required|string',
             'colonia' => 'required|string',
@@ -17,7 +19,8 @@ class ReporteController extends Controller
             'fecha_reporte' => 'required|date',
             'imagen_referencia' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
-
+        //Esto concatena las calles y era la opcion mas fácil (en caso de cambiar de opcion me dicen)
+        $calle = trim($request->calle1 . ' y ' . $request->calle2);
         // Guardar la imagen si se sube
         $path = null;
         if ($request->hasFile('imagen_referencia')) {
@@ -35,7 +38,11 @@ class ReporteController extends Controller
             'imagen_referencia' => $path, // Guarda la ruta de la imagen en la DB
             'estado' => 'Pendiente', // Estado inicial
         ]);
-
-        return back()->with('success', 'Reporte creado con éxito');
+        if ($reportes) {
+            return back()->with('success', 'Reporte creado con éxito');
+        } else {
+            return back()->with('error', 'Hubo un problema al guardar el reporte');
+        }
+        // return back()->with('success', 'Reporte creado con éxito');
     }
 }

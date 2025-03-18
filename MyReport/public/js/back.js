@@ -9,12 +9,18 @@ var mv_lm = document.getElementById("mv_lm") || null;
 var ft_lm = document.getElementById("ft_lm") || null;
 var light_mode_report = document.getElementById("light_mode_report") || null;
 var opciones = document.getElementById("opciones") || null;
-var file_upload = document.getElementById("file-upload") || null;
+var file_upload = document.getElementById("imagen_referencia") || null;
 var icon_img= document.getElementById("icon_img") || null;
 var TR = document.getElementById("TR") || null;
 var IB = document.getElementById("IB") || null;
 var InsertarUbicacion = document.getElementById("InsertarUbicacion") || null;
 var icon_user = document.getElementById("icon_user") || null;
+var fecha_lm = document.getElementById("fecha_lm") || null;
+const fechaActual = new Date();
+const año = fechaActual.getFullYear();
+const mes = String(fechaActual.getMonth() + 1).padStart(2, '0'); // El mes en JavaScript es indexado desde 0
+const dia = String(fechaActual.getDate()).padStart(2, '0');
+const fechaFormateada = `${año}-${mes}-${dia}`;
 // var titulo_m = document.getElementById("Titulo_manual") || null;
 function aplicarTema(modo) {
     
@@ -27,6 +33,8 @@ function aplicarTema(modo) {
     if (mv_lm) mv_lm.classList.toggle("cards_lm", modo === "claro");
     if (ft_lm) ft_lm.classList.toggle("footer_lm", modo === "claro");
     if (light_mode_report) light_mode_report.classList.toggle("recuadros_lm", modo === "claro");
+    
+    if (fecha_lm) fecha_lm.classList.toggle("fecha_lm", modo === "claro");
 
     if (TLM) {
         TLM.classList.replace(modo === "claro" ? "Titulo" : "Titulo_lm", modo === "claro" ? "Titulo_lm" : "Titulo");
@@ -89,7 +97,7 @@ function autoResize(textarea) {
     textarea.style.height = "auto";
     textarea.style.height = (textarea.scrollHeight) + "px";
 };
-document.getElementById("file-upload")?.addEventListener("change", function() {
+document.getElementById("imagen_referencia")?.addEventListener("change", function() {
     let message = document.getElementById("uploadMessage");
     if (this.files.length > 0) {
         message.textContent = "Imagen(es) cargada(s) correctamente.";
@@ -97,7 +105,7 @@ document.getElementById("file-upload")?.addEventListener("change", function() {
         message.textContent = "";
     }
 });
-document.getElementById("file-upload")?.addEventListener("change", function() {
+document.getElementById("imagen_referencia")?.addEventListener("change", function() {
     let preview = document.getElementById("preview");
     let message = document.getElementById("uploadMessage");
     let advertencia = document.getElementById("advertencia");
@@ -176,21 +184,22 @@ document.getElementById("IB")?.addEventListener("change", function() {
             <option value="Colonia">Colonia o Fraccionamiento</option>
             <option value="Boulevard">Boulevard o Carretera</option>
         </select>
-        <h4 class="alineacion" id="Nombre_">Nombre de colonia o fraccionamiento</h4>
-        <textarea id="NombreColonia" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+        <h4 class="alineacion" id="Nombre_" >Nombre de colonia o fraccionamiento</h4>
+        <textarea name="colonia" id="NombreColonia" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
         <div class="calles">
             <div class="calle">
                 <h4 class="alineacion">Entre calle 1</h4>
-                <textarea id="NombreCalle1" rows="1" oninput="autoResize(this)"></textarea>
+                <textarea name="calle1" id="NombreCalle1" rows="1" oninput="autoResize(this)"></textarea>
             </div>
             <div class="calle">
                 <h4 class="alineacion">Entre calle 2</h4>
-                <textarea id="NombreCalle2" rows="1" oninput="autoResize(this)"></textarea>
+                <textarea name="calle2" id="NombreCalle2" rows="1" oninput="autoResize(this)"></textarea>
             </div>
         </div>
         `;
     };
 });
+
 document.addEventListener("change", function (event) {
     
     if (event.target && event.target.id === "tipo") {
@@ -205,3 +214,4 @@ document.addEventListener("change", function (event) {
         };
     }; 
 });
+document.getElementById('fechaActual').value = fechaFormateada;
