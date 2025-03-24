@@ -18,7 +18,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="/MyReport/public/reports">Reports</a></li>
+                <li><a href="/reports">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
                 
@@ -140,9 +140,6 @@
                 <p>Ser la plataforma lider en el reporte y seguimiento de problematicas sociales relacionadas con la contaminacion ambiental, seguridad, y vialidad.<br>MyReport busca disminuir en gran parte las de problematicas actuales que normalmente no son atendidas de manera inmediata colaborando con las respectivas autoridades.</p>
             </div>
         </div>
-    </section>
-    
-    <footer id="ft_lm">
     </section>
     <footer id="ft_lm">
         <div class="titulos">
