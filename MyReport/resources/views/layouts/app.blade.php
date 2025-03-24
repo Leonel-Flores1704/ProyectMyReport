@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('/js/darklight.js') }}"defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,11 +20,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/altenar-tema-L-R.js') }}"></script>
+    <!-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{{ asset('css/styleLR-dark-light.css') }}">
 </head>
 <body>
     <div id="app">
+
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -52,7 +54,6 @@
                     </ul>
                 </div>
             </div>
-
         <main class="py-4">
             @yield('content')
         </main>

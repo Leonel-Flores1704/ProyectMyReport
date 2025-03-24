@@ -5,19 +5,19 @@
 <div class="blur-oval-background-center-L"></div>
 <div class="blur-oval-background-right-L"></div>
 <!-- <link rel="stylesheet" href="{{ asset('css/StyleLR-dark.css') }}"> -->
-<link rel="stylesheet" href="{{ asset('css/styleLR-light.css') }}">
+<!-- <link rel="stylesheet" href="{{ asset('css/styleLR-light.css') }}"> -->
 
 
 <div class="d-flex justify-content-between w-100">
-    <a href="{{ url('/') }}" class="btn d-flex align-items-center justify-content-center" 
-        style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;">
+    <button id="toggle" >
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8m.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707"/>
         </svg>
-    </a>
-    <a href="{{ url('/') }}" class="btn d-flex align-items-center justify-content-center" 
-        style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-circle" viewBox="0 0 16 16">
+    </button>
+    
+    <a href="{{ url('/') }}" class="botonX  d-flex align-items-center justify-content-center">
+    <!-- style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;" -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="grey" class="bi bi-x-circle" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
         </svg>

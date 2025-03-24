@@ -24,7 +24,6 @@ class CreateReportesTable extends Migration
             $table->timestamps();
         });
     }
-
     public function down()
     {
         Schema::dropIfExists('reportes');

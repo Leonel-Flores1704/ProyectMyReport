@@ -5,32 +5,25 @@
 <div class="blur-oval-background"></div>
 <div class="blur-oval-background-center"></div>
 <div class="blur-oval-background-right"></div>
-<script src="{{ asset('js/alternar-tema-L-R.js') }}"></script>
-<!-- <link rel="stylesheet" href="{{ asset('css/styleLR-dark.css') }}"> -->
-<!-- <link rel="stylesheet" href="{{ asset('css/styleLR-light.css') }}"> -->
-<!-- <script src="{{ asset('js/altenar-tema-L-R.js') }}"></script> -->
+<!-- <link rel="stylesheet" href="{{ asset('css/styleLR-dark-light.css') }}"> -->
+
+
 <div class="d-flex justify-content-between w-100">
-    <!-- <a href="{{ url('/') }}" class="btn d-flex align-items-center justify-content-center" 
-        style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;">
+    <button id="toggle" >
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8m.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707"/>
         </svg>
-    </a> -->
-    <a href="#" id="themeToggle" class="btn d-flex align-items-center justify-content-center" 
-        style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
-            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8m.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707"/>
-        </svg>
-    </a>
-    <a href="{{ url('/') }}" class="btn d-flex align-items-center justify-content-center" 
-        style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-circle" viewBox="0 0 16 16">
+    </button>
+
+
+    <a href="{{ url('/') }}" class="botonX d-flex align-items-center justify-content-center">
+    <!-- style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;" -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="grey" class="bi bi-x-circle" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
         </svg>
     </a>
 </div>
-
 
 
 
@@ -40,12 +33,12 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="form-group row mb-0">
-                    <div class="col-md-12 text-center"> <!-- Cambié el col-md-6 por col-md-12 para que ocupen todo el ancho -->
+                    <div class="col-md-12 text-center">
                         <!-- Botón Crear Cuenta -->
                         <a href="{{ route('register') }}" class="btn btn-custom-1" role="button">
                             {{ __('SIGN UP') }}
                         </a>
-                        
+
                         <!-- Botón Iniciar Sesión -->
                         <a href="{{ route('login') }}" class="btn btn-custom-2" role="button">
                             {{ __('LOGIN') }}
@@ -56,7 +49,6 @@
                     <img src="{{ asset('Imagenes/Logo.png') }}" alt="error" id ="logo">
                 </div>
                 <h2 class="text-center">MyReport</h2>
-
 
                 <div class="form-group row mb-0">
                     <div class="col-md-12 d-flex justify-content-center">
@@ -129,13 +121,14 @@
 
 
                 <div class="form-group row mb-0 justify-content-center">
+                <!-- <div class="form-group"> -->
                     <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-primary1">
                             {{ __('Register') }}
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <div class="col-md-6 offset-md-4">
                         <div class="form-check">
@@ -151,5 +144,4 @@
         </div>
     </div>
 </div>
-<!-- </div> -->
 @endsection

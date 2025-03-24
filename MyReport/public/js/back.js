@@ -1,3 +1,5 @@
+const { intersection } = require("lodash");
+
 var toggle = document.getElementById("toggle");
 var icon = document.getElementById("icon");
 // Verificamos solo los elementos que pueden no existir en login
