@@ -141,9 +141,6 @@
             </div>
         </div>
     </section>
-    
-    <footer id="ft_lm">
-    </section>
     <footer id="ft_lm">
         <div class="titulos">
             <h3>Contactanos</h3>

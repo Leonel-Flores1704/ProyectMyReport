@@ -682,3 +682,93 @@ body.claro .btn-S-P{
 
 
 
+
+
+
+/*estilos del los terminos y condicones.*/
+.card-terminos {
+    max-width: 800px;
+    margin: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #FFFFFF;
+    border-radius: 0px 0px 50px 50px;
+    box-shadow: 0  0 6px #A2A2A2;
+
+}
+.titulos-terminos{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.body-terminos{
+    background-color: #E0E0E0
+}
+
+.parrafos-terminos{
+    padding-left: 50px;
+}
+
+.titulo-terminos {
+    font-size: 28px;        
+    color: #031327;           
+    text-align: center;     
+    font-weight: bold;     
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 0%;
+}
+.header-terminos{
+    max-width: 1000px;
+    margin: auto;
+    background-color: #f5f5f5;
+    border-radius: 50px 50px 0px 0px;
+    box-shadow: 0  0 6px #A2A2A2;
+}
+
+
+/*estilos del footer */
+/* Estilos para el footer */
+/*edita tu el footer*/
+.footer-terminos{
+    background-color: #0a192f; /* Fondo oscuro */
+    color: white; /* Texto en blanco */
+    padding: 50px 0;
+    text-align: center;
+    
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    padding: 10px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
