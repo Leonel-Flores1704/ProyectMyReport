@@ -13,7 +13,7 @@ class ReporteController extends Controller
             'calle1' => 'nullable|string',
             'calle2' => 'nullable|string',
             'descripcion_problematica' => 'required|string',
-            'calle' => 'required|string',
+            // 'calle' => 'required|string',
             'colonia' => 'required|string',
             'descripcion_ubicacion' => 'required|string',
             'fecha_reporte' => 'required|date',
@@ -24,7 +24,14 @@ class ReporteController extends Controller
         // Guardar la imagen si se sube
         $path = null;
         if ($request->hasFile('imagen_referencia')) {
-            $path = $request->file('imagen_referencia')->store('reportes', 'public');
+            $path = $request->file('imagen_referencia')->store('reporte', 'public');
+            foreach ($request->file('imagen_referencia') as $imagen) {
+                $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
+                $imagen->move(public_path('images'), $nombreImagen);
+        
+                // Aquí puedes guardar en la base de datos si es necesario
+                // ReporteImagen::create(['reporte_id' => $reporteId, 'nombre_imagen' => $nombreImagen]);
+            }
         }
 
         // Guardar el reporte en la base de datos
@@ -33,9 +40,12 @@ class ReporteController extends Controller
             'descripcion_problematica' => $request->descripcion_problematica,
             'calle' => $request->calle,
             'colonia' => $request->colonia,
+            'calle_entre_1' => $request->calle1,
+            'calle_entre_2' => $request->calle2,
             'descripcion_ubicacion' => $request->descripcion_ubicacion,
             'fecha_reporte' => $request->fecha_reporte,
             'imagen_referencia' => $path, // Guarda la ruta de la imagen en la DB
+            'fecha_reporte' => $request->fecha_reporte,
             'estado' => 'Pendiente', // Estado inicial
         ]);
         if ($reportes) {
