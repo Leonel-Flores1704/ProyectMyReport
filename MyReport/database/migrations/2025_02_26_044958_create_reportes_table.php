@@ -12,13 +12,13 @@ class CreateReportesTable extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('admin_verificador_id')->nullable()->constrained('administradores')->onDelete('set null');
             $table->foreignId('tipo_reporte_id')->constrained('tipos_reporte')->onDelete('cascade');
-            $table->text('descripcion_problemática');
+            $table->text('descripcion_problematica');
             $table->string('calle');
             $table->string('colonia');
             $table->string('calle_entre_1')->nullable();
             $table->string('calle_entre_2')->nullable();
             $table->text('descripcion_ubicacion');
-            $table->string('imagen_referencia')->nullable();
+            $table->text('imagen_referencia')->nullable();
             $table->date('fecha_reporte');
             $table->enum('estado', ['Pendiente', 'Atendido', 'En proceso', 'Completado'])->default('Pendiente');
             $table->timestamps();

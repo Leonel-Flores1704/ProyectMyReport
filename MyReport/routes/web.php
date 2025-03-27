@@ -5,7 +5,7 @@ use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
-Route::post('/guardar-reporte', [ReporteController::class, 'store'])->name('guardar.reporte');
+Route::post('/reportes', [ReporteController::class, 'store'])->name('reportes.store');
 
 Route::get('/', function () {
     return view('welcome');
