@@ -5,7 +5,6 @@
 <div class="blur-oval-background"></div>
 <div class="blur-oval-background-center"></div>
 <div class="blur-oval-background-right"></div>
-<!-- <link rel="stylesheet" href="{{ asset('css/styleLR-dark-light.css') }}"> -->
 
 
 <div class="d-flex justify-content-between w-100">
@@ -17,7 +16,6 @@
 
 
     <a href="{{ url('/') }}" class="botonX d-flex align-items-center justify-content-center">
-    <!-- style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;" -->
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="grey" class="bi bi-x-circle" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
@@ -36,12 +34,12 @@
                     <div class="col-md-12 text-center">
                         <!-- Botón Crear Cuenta -->
                         <a href="{{ route('register') }}" class="btn btn-custom-1" role="button">
-                            {{ __('SIGN UP') }}
+                            {{ __('REGISTRARSE') }}
                         </a>
 
                         <!-- Botón Iniciar Sesión -->
                         <a href="{{ route('login') }}" class="btn btn-custom-2" role="button">
-                            {{ __('LOGIN') }}
+                            {{ __('INICIAR SESION') }}
                         </a>
                     </div>
                 </div>
@@ -65,7 +63,7 @@
 
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="name" class="col-form-label">{{ __('Name') }}</label>
+                        <label for="name" class="col-form-label">{{ __('Nombre') }}</label>
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -74,7 +72,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6">
-                        <label for="last_name" class="col-form-label">{{ __('Last Name') }}</label>
+                        <label for="last_name" class="col-form-label">{{ __('Apellido') }}</label>
                         <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name">
                         @error('last_name')
                         <span class="invalid-feedback" role="alert">
@@ -85,7 +83,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="birthdate" class="col-form-label">{{ __('Birthdate') }}</label>
+                    <label for="birthdate" class="col-form-label">{{ __('Fecha de nacimiento') }}</label>
                     <input id="birthdate" type="date" class="form-control @error('birthdate') is-invalid @enderror" name="birthdate" value="{{ old('birthdate') }}" required>
                     @error('birthdate')
                     <span class="invalid-feedback" role="alert">
@@ -95,7 +93,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="email" class="col-form-label">{{ __('E-Mail Address') }}</label>
+                    <label for="email" class="col-form-label">{{ __('Correo electronico') }}</label>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                     @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -105,7 +103,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password" class="col-form-label">{{ __('Password') }}</label>
+                    <label for="password" class="col-form-label">{{ __('Contraseña') }}</label>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -115,7 +113,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password-confirm" class="col-form-label">{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm" class="col-form-label">{{ __('Confirmar contraseña') }}</label>
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                 </div>
 
@@ -124,7 +122,7 @@
                 <!-- <div class="form-group"> -->
                     <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-primary1">
-                            {{ __('Register') }}
+                            {{ __('Registrarse') }}
                         </button>
                     </div>
                 </div>

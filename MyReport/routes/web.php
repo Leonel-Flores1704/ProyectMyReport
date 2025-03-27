@@ -15,7 +15,14 @@ Route::get('/reports', function () {
     return view('reports');
 });
 Route::get('/terminos-y-condiciones', function () {
-    return view('terminos'); // terminos
+    return view('terminos'); 
+});
+Route::get('/politica', function () {
+    return view('politica');
+});
+
+Route::get('/resolvedMatters', function(){
+    return view('resolvedMatters');
 });
 
 Route::get('/auth/google', [SocialiteController::class, 'redirectToGoogle']);
