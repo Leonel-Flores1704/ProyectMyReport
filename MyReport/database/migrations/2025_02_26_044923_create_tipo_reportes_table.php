@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTipoReportesTable extends Migration
+class CreateTiposReporteTable extends Migration
 {
     public function up()
     {
@@ -20,6 +20,3 @@ class CreateTipoReportesTable extends Migration
         Schema::dropIfExists('tipos_reporte');
     }
 }
-
-
-//php artisan migrate:fresh

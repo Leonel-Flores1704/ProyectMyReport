@@ -6,14 +6,14 @@
     font-family: "Poppins", serif;
 }
 body{
-    background-color: #000000;
+    background-color: #101010;
     transition: all 1.2s ease;
 }
 section{
     color: #fff;
 }
 footer{
-    background-color: #000;
+    background-color: #101010;
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -21,7 +21,7 @@ footer{
     
 }
 .navegador{
-    background-color: #000000;
+    background-color: #101010;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -208,7 +208,7 @@ h1 {
     scroll-snap-align: center;
     display: flex;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 50px;
     margin-left: 80px;
     margin-top: 50px;
     width: auto;
@@ -222,8 +222,9 @@ h1 {
     padding: 25px 15px 0 25px;
 }
 .left p{
-    width: 300px;
+    width: 400px;
     margin-left: 25px;
+    font-size: 20px;
 }
 .left button{
     margin-left: 25px;
@@ -237,15 +238,16 @@ h1 {
 }
 .fotos{
     position: relative;
-    width: 300px;
+    width: 550px;
     margin-right: 10px;
 }
 .fotos img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 50px;
 }
 .fotos p{
     color: #fff;
+    font-size: 20px;
     text-align: center;
 }
 .mision_vision{
@@ -257,16 +259,16 @@ h1 {
     margin-bottom: 80px;
 }
 .cards{
-    border-radius: 30px;
+    border-radius: 50px;
     text-align: center;
     display: flex;
     background-color: #252525;
     width: 650px;
-    height: 550px;
+    
 }
 .cards img{
     width: 400px;
-    border-radius: 40px;
+    border-radius: 50px;
     margin-bottom: 20px;
 }
 .content h1{
@@ -277,6 +279,7 @@ h1 {
     max-width: 600px;
     text-align: left;
     margin-left: 45px;
+    font-size: 18px;
 }
 .titulos h3{
     padding: 50px;
@@ -405,9 +408,6 @@ form .ajuste #preview{
     width: 200px;
     display: flex;
     margin-left: -200px;
-}
-form #idk{
-    margin-bottom: -20px;
 }
 /* Codigo chatgtp */
 .custom-imagen_referencia {
@@ -612,6 +612,9 @@ display: none;
 #acomodo{
     text-align: center;
     margin-right: 50px;
+}
+#acomodo h3{
+    margin-top: -60px;
 }
 #acomodo .info{
     justify-content: center;

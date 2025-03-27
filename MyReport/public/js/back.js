@@ -1,8 +1,7 @@
-const { intersection } = require("lodash");
-
 var toggle = document.getElementById("toggle");
 var icon = document.getElementById("icon");
 // Verificamos solo los elementos que pueden no existir en login
+var icon_img = document.getElementById("icon_img") || null;
 var TLM = document.getElementById("TLM") || null;
 var barra = document.getElementById("barra") || null;
 var fondo = document.getElementById("fondo") || null;
@@ -16,6 +15,7 @@ var icon_img= document.getElementById("icon_img") || null;
 var TR = document.getElementById("TR") || null;
 var IB = document.getElementById("IB") || null;
 var InsertarUbicacion = document.getElementById("InsertarUbicacion") || null;
+var UbicacionTiempoReal = document.getElementById("UbicacionTiempoReal") || null;
 var icon_user = document.getElementById("icon_user") || null;
 var fecha_lm = document.getElementById("fecha_lm") || null;
 const fechaActual = new Date();
@@ -35,21 +35,15 @@ function aplicarTema(modo) {
     if (mv_lm) mv_lm.classList.toggle("cards_lm", modo === "claro");
     if (ft_lm) ft_lm.classList.toggle("footer_lm", modo === "claro");
     if (light_mode_report) light_mode_report.classList.toggle("recuadros_lm", modo === "claro");
-    
     if (fecha_lm) fecha_lm.classList.toggle("fecha_lm", modo === "claro");
-
     if (TLM) {
         TLM.classList.replace(modo === "claro" ? "Titulo" : "Titulo_lm", modo === "claro" ? "Titulo_lm" : "Titulo");
     };
     if (tipo) {
         tipo.classList.toggle("tipo_lm", modo === "claro");
     };
-    
-    if (icon) {
-        if (modo === "claro") {
-            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="black" class="bi bi-moon" viewBox="0 0 16 16">
-                <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
-            </svg>`;
+    if(icon_img){
+        if(modo === "claro"){
             icon_img.innerHTML= `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="black" class="bi bi-image" viewBox="0 0 16 16" >
                                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
                                 <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/>
@@ -63,11 +57,8 @@ function aplicarTema(modo) {
                             <div class="ajuste">
                                     <div id="preview"></div>
                             </div>`;
-        } else {
-            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
-                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8m.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707"/>
-            </svg>`;
-            icon_img.innerHTML= `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16" >
+        }else{
+            icon_img.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16" >
                                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
                                 <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/>
                             </svg>
@@ -82,13 +73,19 @@ function aplicarTema(modo) {
                             </div>`;
         };
     };
+    if (icon) {
+        if (modo === "claro") {
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="black" class="bi bi-moon" viewBox="0 0 16 16">
+                <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+            </svg>`;
+        } else {
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
+                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8m.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707"/>
+            </svg>`;
+        };
+    };
     localStorage.setItem("modo", modo);
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    var modoGuardado = localStorage.getItem("modo") || "oscuro"; 
-    aplicarTema(modoGuardado);
-});
 
 toggle.addEventListener("click", () => {
     var nuevoModo = document.body.classList.contains("lightmode") ? "oscuro" : "claro";
@@ -99,7 +96,7 @@ function autoResize(textarea) {
     textarea.style.height = "auto";
     textarea.style.height = (textarea.scrollHeight) + "px";
 };
-document.getElementById("imagen_referencia")?.addEventListener("change", function() {
+/*document.getElementById("imagen_referencia")?.addEventListener("change", function() {
     let message = document.getElementById("uploadMessage");
     if (this.files.length > 0) {
         message.textContent = "Imagen(es) cargada(s) correctamente.";
@@ -134,13 +131,13 @@ document.getElementById("imagen_referencia")?.addEventListener("change", functio
         };
         reader.readAsDataURL(file);
     });
-});
+});*/
 
 //Fin codigo chatgpt
 opciones?.addEventListener("change",function(){
     
     switch(opciones.value){
-        case "Select":
+        case "":
             Titulo_manual.innerHTML ="Titulo";
             descripcion.innerHTML = "Breve descripcion acerca del problema que usted desea reportar.";
             criterio1.innerHTML="Texto de ejemplo acerca de la problemática";
@@ -152,7 +149,7 @@ opciones?.addEventListener("change",function(){
             criterios2.innerHTML="Texto de ejemplo que no es acorde a la problemática";
             criterios3.innerHTML="Texto de ejemplo que no es acorde a la problemática";
         break;
-        case "Baches":
+        case "1":
             Titulo_manual.innerHTML ="¿Qué es un bache?";
             descripcion.innerHTML = "Un bache es un hoyo o hundimiento en la superficie de una calle o carretera, causado por el desgaste, el clima o el tráfico constante..";
             criterio1.innerHTML="Huecos o depresiones en el pavimento que afectan la circulación.";
@@ -168,15 +165,13 @@ opciones?.addEventListener("change",function(){
     }
 });
 document.getElementById("TR")?.addEventListener("change", function() {
-    if (this.checked) {
-        document.getElementById("IB").checked = false;
-    };
-    if(this.checked){
-        InsertarUbicacion.innerHTML = "";
-    };
+    document.getElementById('UbicacionTiempoReal').style.display = 'block';
+    document.getElementById('InsertarUbicacion').style.display = 'none';
 });
 document.getElementById("IB")?.addEventListener("change", function() {
-    if (this.checked) {
+    document.getElementById('UbicacionTiempoReal').style.display = 'none';
+    document.getElementById('InsertarUbicacion').style.display = 'block';
+    /*if (this.checked) {
         document.getElementById("TR").checked = false;
     };
     if(this.checked){
@@ -188,6 +183,8 @@ document.getElementById("IB")?.addEventListener("change", function() {
         </select>
         <h4 class="alineacion" id="Nombre_" >Nombre de colonia o fraccionamiento</h4>
         <textarea name="colonia" id="NombreColonia" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+        <h4 class="alineacion">Nombre de la calle donde se encuentra</h4>
+        <textarea name="calle" id="NombreCalle" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
         <div class="calles">
             <div class="calle">
                 <h4 class="alineacion">Entre calle 1</h4>
@@ -199,7 +196,7 @@ document.getElementById("IB")?.addEventListener("change", function() {
             </div>
         </div>
         `;
-    };
+    };*/
 });
 
 document.addEventListener("change", function (event) {
@@ -217,3 +214,44 @@ document.addEventListener("change", function (event) {
     }; 
 });
 document.getElementById('fechaActual').value = fechaFormateada;
+
+document.addEventListener("DOMContentLoaded", function () {
+    var modoGuardado = localStorage.getItem("modo") || "oscuro"; 
+    aplicarTema(modoGuardado);
+
+    //codigo chatgpt
+    const fileUpload = document.getElementById("imagen_referencia");
+    const message = document.getElementById("uploadMessage");
+    const preview = document.getElementById("preview");
+    const advertencia = document.getElementById("advertencia");
+
+    if (fileUpload) {
+        fileUpload.addEventListener("change", function () {
+            if (this.files.length > 3) {
+                message.textContent = "Solo puedes subir hasta 3 imágenes.";
+                this.value = ""; // Borra las imágenes seleccionadas
+                preview.innerHTML = ""; // Limpia la vista previa
+                return;
+            }
+
+            if (this.files.length > 0) {
+                message.textContent = "Imagen(es) cargada(s) correctamente.";
+            } else {
+                message.textContent = "";
+            }
+
+            preview.innerHTML = ""; // Limpia la vista previa anterior
+            Array.from(this.files).forEach(file => {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement("img");
+                    img.src = e.target.result;
+                    img.style.width = "120px";
+                    img.style.margin = "5px";
+                    preview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+    };
+});

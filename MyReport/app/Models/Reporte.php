@@ -14,7 +14,7 @@ class Reporte extends Model
         'user_id',
         'admin_verificador_id',
         'tipo_reporte_id',  // Asegúrate de que este campo esté en el $fillable
-        'descripcion_problemática',
+        'descripcion_problematica',
         'calle',
         'colonia',
         'calle_entre_1',
@@ -24,4 +24,4 @@ class Reporte extends Model
         'fecha_reporte',
         'estado',
     ];
-}
+};

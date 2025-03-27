@@ -18,7 +18,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="/reports">Reports</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Resolved Matters</a></li>
                 <li id="icon_user">
@@ -59,7 +59,7 @@
             <div class="manual">
                 <h1 id="Titulo_manual">Titulo</h1>
                 <p class="descripcion" id="descripcion">Breve descripcion acerca del problema que usted desea reportar.</p>
-                <div class="imagen_referencia">
+                <div class="imagen_referencia_">
                     <img src="" alt="Imagen de referencia acerca a su problema">
                 </div>
                 <p>Criterios que definen su problematica</p>
@@ -70,7 +70,7 @@
                 </div>
                 <h1 id="Subtitulo_manual">Que no es un ...</h1>
                 <p id="descripcion2">Breve descripcion que no cumple con las caracterisitcas acerca del problema que usted desea reportar.</p>
-                <div class="imagen_referencia">
+                <div class="imagen_referencia_">
                     <img src="" alt="Imagen de referencia acerca a su problema">
                 </div>
                 <p>Criterios que no definen su problematica</p>
@@ -83,39 +83,68 @@
         </div>
         <div class="recuadros">
             <div class="campos">
-                <form action="{{ route('guardar.reporte') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('reportes.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div id="fecha_lm">
                         <p>Fecha de registro</p>
-                        <input name ="fecha_reporte"type="date" id="fechaActual" disabled>
+                        <input name ="fecha_reporte"type="date" id="fechaActual" readonly>
                     </div>
                     <h4 class="alineacion">Tipo de problematica ocurrida</h4>
-                    <select name="options" id="opciones">
-                        <option value="Select">Seleccione su problemática a reportar</option>
-                        <option value="Baches">Baches</option>
-                        <option value="Semaforos_apagados">Semaforos apagados</option>
-                        <option value="Focos_infeccion">Focos de infección</option>
-                        <option value="Plazas_sucias">Plazas sucias</option>
-                        <option value="Terrenos_baldios">Terrenos baldíos</option>
-                        <option value="Alumbrado_publico">Alumbrado público</option>
+                    <select name="tipo_reporte_id" id="opciones">
+                        <option value="">Seleccione su problemática a reportar</option>
+                        <option value="1">Baches</option>
+                        <option value="2">Semaforos apagados</option>
+                        <option value="3">Focos de infección</option>
+                        <option value="4">Plazas sucias</option>
+                        <option value="5">Terrenos baldíos</option>
+                        <option value="6">Alumbrado público</option>
                     </select>
                     <h4 class="alineacion">Ubicación</h4>
                     <div class="radio_botones">
                         <div class="radio_group">
-                            <input type="radio" name="ubicacion_tiempo_real" id="TR">
+                            <!-- <input type="radio" name="ubicacion_tiempo_real" id="TR" value="tiempo_real"> -->
+                            <input type="radio" name="ubicacion" id="TR">
+                            <label for="TR"></label>
                             <p>Ubicacion en tiempo real</p>
                         </div>
                         <div class="radio_group">
-                            <input type="radio" name="insertar_ubicacion" id="IB">
+                            <!-- <input type="radio" name="insertar_ubicacion" id="IB" value="insertada"> -->
+                            <input type="radio" name="ubicacion" id="IB">
+                            <label for="IB"></label>
                             <p>Insertar ubicacion</p>
                         </div>
                     </div>
-                    <div id="InsertarUbicacion"></div>
+                    <!-- <div id="InsertarUbicacion"></div> -->
+                    <div id="InsertarUbicacion" style="display: none;">
+                        <h4 class="alineacion">Escoger entre ...</h4>
+                        <select name="options" id="tipo" class="tipo_dm">
+                            <option value="Colonia">Colonia o Fraccionamiento</option>
+                            <option value="Boulevard">Boulevard o Carretera</option>
+                        </select>
+                        <h4 class="alineacion" id="Nombre_" >Nombre de colonia o fraccionamiento</h4>
+                        <textarea name="colonia" id="NombreColonia" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+                        <h4 class="alineacion">Nombre de la calle donde se encuentra</h4>
+                        <textarea name="calle" id="NombreCalle" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+                        <div class="calles">
+                            <div class="calle">
+                                <h4 class="alineacion">Entre calle 1</h4>
+                                <textarea name="calle1" id="NombreCalle1" rows="1" oninput="autoResize(this)"></textarea>
+                            </div>
+                            <div class="calle">
+                                <h4 class="alineacion">Entre calle 2</h4>
+                                <textarea name="calle2" id="NombreCalle2" rows="1" oninput="autoResize(this)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="UbicacionTiempoReal" style="display: none;">
+                        <h4 class="alineacion">Nombre del Boulevard o Carretera</h4>
+                        <textarea name="descripcion_ubicacion" class="autoTextarea" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+                    </div>
                     <h4 class="alineacion">Descripcion de la ubicacion</h4>
-                    <textarea name="descripcion_ubicacion"id="autoTextarea" rows="1" oninput="autoResize(this)"></textarea>
+                    <textarea name="descripcion_ubicacion" class="autoTextarea" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
                     <h4 class="alineacion">Descripcion de los hechos</h4>
-                    <textarea name= "descripcion_problematica"id="autoTextarea_" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
-                    <label for="images" id="idk">Sube hasta 3 imágenes:</label>
+                    <textarea name= "descripcion_problematica" class="autoTextarea_" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
+                    <h4 class="alineacion" id="idk">Sube hasta 3 imágenes:</h4>
                     <div class="centro">
                         <label for="imagen_referencia" class="custom-imagen_referencia" id="icon_img">
                             <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16" >
@@ -183,8 +212,6 @@
         </div>
         
     </footer>
-    <!-- <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/dropdown.js') }}"></script> -->
     <script src="{{ asset('js/back.js') }}"></script>
 </body>
 </html>
