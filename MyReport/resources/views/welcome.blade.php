@@ -20,7 +20,7 @@
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/reports">Reports</a></li>
                 <li><a href="#">About us</a></li>
-                <li><a href="#">Resolved Matters</a></li>
+                <li><a href="/resolvedMatters">Resolved Matters</a></li>
                 
             </ul>
         </nav>
