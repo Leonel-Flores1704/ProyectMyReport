@@ -306,22 +306,28 @@ h1 {
     align-items: center;
     height: 100%;
 }
-.campos #fecha_lm{
+
+.campos .fecha{
     margin-top: -50px;
     display: flex;
     justify-content: end;
 }
-.campos #fecha_lm p{
+.campos .fecha p{
     margin-right: 10px;
     font-size: 16px;
     margin-right: 10px;
 }
-.campos #fecha_lm input{
+.campos .fecha input{
     padding-left: 10px;
     background-color: none;
     color: white;
     border-radius: 10px;
     height: 30px;
+    background-color: #101010;
+}
+.campos .fecha_lm input{
+    background-color: #AEAEAE;
+    color: black;
 }
 .campos h4, select, div, form {
     padding-top: 10px;
@@ -782,8 +788,4 @@ display: none;
     background-color: #FFF;
     color: #000;
     border-color: #000;
-}
-.fecha_lm input{
-    background-color: #AEAEAE;
-    color: red;
 }

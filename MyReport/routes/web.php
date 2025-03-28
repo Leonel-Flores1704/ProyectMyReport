@@ -10,7 +10,9 @@ Route::post('/reportes', [ReporteController::class, 'store'])->name('reportes.st
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/myreports', function () {
+    return view('myreports');
+});
 Route::get('/reports', function () {
     return view('reports');
 });
