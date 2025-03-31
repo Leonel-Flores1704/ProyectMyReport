@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<header id="barra" class="navegador">
+    <header id="barra" class="navegador">
         <div class="logo">
             <h1 id="MR">MyReport</h1>
             <img src="{{ asset('Imagenes/Logo.png') }}" alt="Aqui va el logo" id="logo">
@@ -20,18 +20,25 @@
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/reports">Reports</a></li>
                 <li><a href="#">About us</a></li>
-                <li><a href="#">Resolved Matters</a></li>
-                <li id="icon_user">
+                <li><a href="/resolvedMatters">Resolved Matters</a></li>
+                <li id="icon_user" class="user-menu">
                     @if (Auth::check())
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                        </svg>
-                        <!-- Si el usuario está autenticado, mostramos el botón de logout -->
-                        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                            @csrf
-                            <button type="submit" class="btn">log out</button>
-                        </form>
+                        <div class="user-icon" onclick="toggleMenu()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                        </div>
+                        
+                        <ul class="submenu" id="submenu">
+                            <li id="corregir"><a href="/myreports">Mis Reportes</a></li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    <button type="submit" class="btn">Cerrar Sesión</button>
+                                </form>
+                            </li>
+                        </ul>
                     @else
                         <!-- Si no está autenticado, mostramos el botón de login -->
                         <a href="{{ route('login') }}" class="btn"><button>Log in</button></a>
@@ -47,9 +54,6 @@
             </div>
         </label>
         <input type="checkbox" id="toggle">
-
-        <!-- Aquí verificamos si el usuario está autenticado -->
-
     </header>
     <section id="fondo" class="hero">
         <div class="contenido">

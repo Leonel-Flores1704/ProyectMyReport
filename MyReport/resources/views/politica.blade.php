@@ -3,22 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y Condiciones - MyReport</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
+    <title>Política de Privacidad - MyReport</title>
     <link rel="stylesheet" href="{{ asset('css/styleLR-dark-light.css') }}">
-
     <script src="{{ asset('/js/darklight.js') }}"defer></script>
 
-
-
-
 </head>
-
 <div class="contenedor-botones">
     <button id="toggle">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
@@ -33,39 +22,64 @@
         </svg>
     </a>
 </div>
+<body class="body-politica">
+    <header class = "header-politica">
+    <h1>POLITICA DE PRIVACIDAD MyReport</h1>
+    <p>Última actualización: 26/03/2025</p>
+    </header>
+    <main>
+        <div class = "card-politica">
+            <h2 class = "titulos-politicas">1. Introducción</h2>
+                <p>En MyReport, nos comprometemos a proteger la privacidad y seguridad de los datos personales de nuestros usuarios. La presente Política de Privacidad explica qué información recopilamos, cómo la usamos, compartimos y protegemos, y los derechos que le asisten.</p>
 
-    <body class="body-terminos">
-        <div class="header-terminos">
-            <h1 class = "titulo-terminos">TERMINOS Y CONDICONES MyReport</h1>
+            <h2 class = "titulos-politicas">2. Información que Recopilamos</h2>
+                <p>Recopilamos la siguiente información:</p>
+            <ul>
+                <li><strong>Datos de identificación:</strong> Nombre, dirección de correo electrónico</li>
+                <li><strong>Datos de uso:</strong> Información sobre cómo interactúa con nuestro sitio web, páginas visitadas y otros datos técnicos (por ejemplo, dirección IP, tipo de navegador).</li>
+            </ul>
+
+            <h2 class = "titulos-politicas">3. Uso de la Información</h2>
+                <p>La información recopilada se utiliza para:</p>
+            <ul>
+                <li>Proveer, mantener y mejorar nuestros servicios.</li>
+                <li>Personalizar la experiencia del usuario.</li>
+                <li>Analizar el comportamiento del usuario para optimizar el funcionamiento del sitio web.</li>
+            </ul>
+
+            <h2 class = "titulos-politicas">4. Compartir y Transferir Datos</h2>
+                <p>MyReport no vende, alquila ni comparte datos personales con terceros, salvo en los siguientes casos:</p>
+            <ul>
+                <li>Con proveedores de servicios que nos ayudan a operar el sitio web, quienes están obligados a proteger la confidencialidad de la información.</li>
+                <li>Cuando sea requerido por la ley o para proteger los derechos, propiedad o seguridad de MyReport, nuestros usuarios u otros.</li>
+            </ul>
+
+            <h2 class = "titulos-politicas">5. Seguridad de la Información</h2>
+                <p>Implementamos medidas de seguridad técnicas y organizativas para proteger sus datos personales contra pérdida, mal uso, acceso no autorizado, alteración o divulgación. Sin embargo, ningún método de transmisión por Internet o almacenamiento electrónico es 100% seguro.</p>
+
+            <h2 class = "titulos-politicas">6. Derechos de los Usuarios</h2>
+                <p>Usted tiene derecho a:</p>
+            <ul>
+                <li>Acceder, corregir o eliminar sus datos personales.</li>
+                <li>Solicitar información sobre cómo se están utilizando sus datos.</li>
+                <li>Revocar el consentimiento otorgado para el tratamiento de sus datos en cualquier momento.</li>
+            </ul>
+                <p>Para ejercer estos derechos, puede contactar a nuestro equipo de soporte a través del correo: <a href="mailto:correo@myreport.com">MyReport@myreport.com</a>.</p>
+
+            <h2 class = "titulos-politicas">7. Conservación de los Datos</h2>
+                <p>Conservamos sus datos personales únicamente durante el tiempo necesario para cumplir con los fines para los cuales fueron recopilados o según lo exija la ley.</p>
+
+            <h2 class = "titulos-politicas">8. Cambios en la Política de Privacidad</h2>
+                <p>Podremos actualizar esta política en función de cambios en la legislación o en nuestras prácticas. Se recomienda revisar periódicamente esta página para estar informado sobre cómo protegemos su información.</p>
+
+            <h2 class = "titulos-politicas">9. Información de Contacto</h2>
+                <p>Si tiene alguna pregunta o inquietud acerca de esta Política de Privacidad, por favor contáctenos en:</p>
+                <p>
+                <strong>MyReport</strong><br>
+                Correo electrónico: <a href="mailto:correo@myreport.com">correo@myreport.com</a><br>
+            </p>
         </div>
-        <div class="card-terminos">
-        <h1 class = "titulos-terminos">Términos y Condiciones MyReport</h1>
-        <p class = "parrafos-terminos">Bienvenido a nuestro sitio web. A continuación, se presentan los términos y condiciones que rigen el uso de nuestra plataforma. Al acceder o utilizar este sitio web, usted acepta cumplir con estos términos. Si no está de acuerdo con alguno de estos términos, le recomendamos no utilizar este sitio web.</p>
-
-        <h2 class = "titulos-terminos">1. Aceptación de los términos</h2>
-        <p class = "parrafos-terminos" >Al utilizar este sitio web, usted acepta los términos y condiciones establecidos en este acuerdo. Estos términos pueden ser modificados en cualquier momento sin previo aviso, por lo que le recomendamos revisarlos periódicamente.</p>
-
-        <h2 class = "titulos-terminos">2. Uso del sitio web</h2>
-        <p class = "parrafos-terminos" >Usted se compromete a utilizar este sitio web solo para fines lícitos y de acuerdo con todas las leyes locales, nacionales e internacionales aplicables.</p>
-
-        <h2 class = "titulos-terminos">3. Propiedad intelectual</h2>
-        <p class = "parrafos-terminos" >Todo el contenido de este sitio web, incluidos textos, gráficos, logotipos, imágenes y otros materiales, está protegido por derechos de autor y otras leyes de propiedad intelectual. Usted no tiene derecho a reproducir, distribuir ni modificar este contenido sin el permiso expreso del propietario del sitio.</p>
-
-        <h2 class = "titulos-terminos">4. Limitación de responsabilidad</h2>
-        <p class = "parrafos-terminos" >No seremos responsables por cualquier daño directo, indirecto, incidental, especial, consecuente o ejemplar que resulte del uso o la incapacidad de usar este sitio web, incluyendo, pero no limitándose a, errores, virus o fallas en el sistema.</p>
-
-        <h2 class = "titulos-terminos">5. Privacidad</h2>
-        <p class = "parrafos-terminos" >Para obtener información sobre cómo manejamos sus datos personales, consulte nuestra <a href="{{ url('/politica') }}">Política de Privacidad</a>.</p>
-
-        <h2 class = "titulos-terminos">6. Modificaciones a los términos</h2>
-        <p class = "parrafos-terminos" >Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor tan pronto como sean publicadas en esta página.</p>
-
-        <h2 class = "titulos-terminos">7. Ley aplicable</h2>
-        <p class = "parrafos-terminos" >Este acuerdo se regirá e interpretará de acuerdo con las leyes de Mexico. Cualquier disputa relacionada con este acuerdo será resuelta en los tribunales competentes.</p>
-
-        <h2 class = "titulos-terminos">8. Contacto</h2>
-        <p class = "parrafos-terminos">Si tiene alguna pregunta sobre estos términos y condiciones, puede ponerse en contacto con nosotros a través de nuestro correo electrónico: <strong>MyReport@gmail.com</strong>.</p>
-    </div>
+    </main>
     <footer class="footer-terminos">
         <div class="titulos-footer">
             <h1>Contactanos</h1>
@@ -123,5 +137,3 @@
     </footer>
 </body>
 </html>
-
-

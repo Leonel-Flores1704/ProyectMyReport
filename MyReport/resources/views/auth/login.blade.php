@@ -16,7 +16,6 @@
     </button>
     
     <a href="{{ url('/') }}" class="botonX  d-flex align-items-center justify-content-center">
-    <!-- style="background-color: #121212; width: 50px; height: 50px; border-radius: 50%;" -->
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="grey" class="bi bi-x-circle" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
@@ -35,12 +34,12 @@
                     <div class="col-md-12 text-center"> <!-- Cambié el col-md-6 por col-md-12 para que ocupen todo el ancho -->
                         <!-- Botón Crear Cuenta -->
                         <a href="{{ route('register') }}" class="btn btn-custom-1" role="button">
-                            {{ __('SIGN UP') }}
+                            {{ __('REGISTRARSE') }}
                         </a>
                         
                         <!-- Botón Iniciar Sesión -->
                         <a href="{{ route('login') }}" class="btn btn-custom-2" role="button">
-                            {{ __('LOGIN') }}
+                            {{ __('INICIAR SESION') }}
                         </a>
                     </div>
                 </div>
@@ -62,7 +61,7 @@
                 
             
                 <div class="form-group ">
-                    <label for="email" class="col-form-label">{{ __('E-Mail Address') }}</label>
+                    <label for="email" class="col-form-label">{{ __('Correo electronico') }}</label>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -72,7 +71,7 @@
                 </div>
 
                 <div class="form-group ">
-                    <label for="password" class="col-form-label">{{ __('Password') }}</label>
+                    <label for="password" class="col-form-label">{{ __('Contraseña') }}</label>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                     @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -86,7 +85,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                             <label class="form-check-label" for="remember">
-                                {{ __('Remember Me') }}
+                                {{ __('Recuerdame') }}
                             </label>
                         </div>
                     </div>
@@ -97,12 +96,14 @@
                         <button type="submit" class="btn btn-primary1">
                             {{ __('Login') }}
                         </button>
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
                     </div>
+                    @if (Route::has('password.request'))
+                        <div class="col-md-12 text-center mt-2"> 
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{ __('¿Olvidaste tu contraseña?') }}
+                            </a>
+                        </div>
+                    @endif
                 </div>
             </form>
     </div>

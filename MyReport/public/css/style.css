@@ -17,8 +17,7 @@ footer{
     color: #fff;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    
+    align-items: center;   
 }
 .navegador{
     background-color: #101010;
@@ -67,10 +66,9 @@ footer{
     margin-left: -10px;
     margin-top: -5px;
 }
-.navegador .nav-links li:hover{
+/* .navegador .nav-links li:hover{
     transform: scale(1.1);
-    
-}
+} */
 .navegador .nav-links a{
     display: inline-block;
     padding: 0 20px;
@@ -102,7 +100,66 @@ footer{
     color: black;
     transform: scale(1.1);
 }
+/* Hacer un submenu para que el usuario pueda ir a sus reportes o cerrar sesion */
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
 
+.user-icon {
+    cursor: pointer;
+}
+
+.user-menu .submenu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #101010;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: 135px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.user-menu .submenu li {
+    list-style: none;
+    padding: 1px;
+    text-align: center;
+}
+.user-menu .submenu li #corregir{
+    font-size: 14px;
+    transition: all 0.3;
+    width: 130px;
+    text-align: left;
+    
+}
+.user-menu .submenu li #corregir:hover{
+    color: white;
+}
+.user-menu .submenu li a, .user-menu .submenu li button {
+    text-decoration: none;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+}
+.user-menu .submenu li button{
+    margin-top: -20px;
+}
+.user-menu .submenu li a:hover,.user-menu .submenu li button:hover {
+    color: white;
+}
+.submenu.active {
+    display: block;
+}
+.user-menu .submenu li:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+/* Fin de eso */
 .hero {
     transition: all 1.2s ease;
     position: relative;
@@ -590,16 +647,6 @@ display: none;
     margin-left: 40px;
     width: 30px; height: 30px;
 }
-/* #fpss{
-    text-align: right;
-    margin-top: 20px;
-}
-#fpss a{
-    color: #535252;
-}
-#fpss a:hover{
-    color: #4e77ffae;
-} */
 #aceptar{
     width: 600px;
     background: linear-gradient(90deg, #ffffff6e, #0000006b);
@@ -691,9 +738,136 @@ display: none;
 .contenido_register .contenido_rec .user input{
     width: 400px;
 }
-/*stilos del registro e iniiciar secion inicio*/
+/*Inico para que al usuario le aparezca la imagen del reporte hecho*/
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.496);
+    z-index: 9999;
+}
 
+.modal-content {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+.modal-content #check {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: auto;
+    margin-bottom: 30px;
+}
+#closeModal {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    background-color: #031C39;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50px;
+    width: 450px;
+    padding: 15px 20px;
+}
+#closeModal p{
+    font-weight: bold;
+    margin: 10px 0px 10px 10px;
+}
+.modal-content #paloma{
+    width: 36px;
+    height: 36px;
+    color: greenyellow;
+    padding: 0px;
+    margin-left: -220px;
+}
+/*Fin; Fue hecho con chatgpt*/
+
+/*Inicio para dar estilo a los reportes del usuario*/
+.ContenidoMyR{
+    display: grid;
+    place-items: center;
+    background-color: #101010;
+}
+.contenedor-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columnas */
+    gap: 50px 80px; /* Espacio entre cards */
+}
+
+.card_misreportes {
+    border-radius: 50px;
+    background-color: #252525;
+    transition: transform 0.3s ease;
+    width: 550px;
+}
+
+.card_misreportes:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilo para el Título */
+.Titulo_MyR {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    background-color: #252525;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+.Titulo_MyR div{
+    width: 420px;
+    height: 30px;
+}
+.Titulo_MyR div h1{
+    margin-top: -15px;
+    font-size: 32px;
+}
+/* Botón Ver Más */
+#verMas {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #696969;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.ContenidoMyR .card_misreportes_img{
+    margin-top: -20px;
+    width: auto;
+    display: flex;
+    
+}
+.ContenidoMyR .card_misreportes_img img{
+    display: grid;
+    gap: 10px;
+    overflow: hidden;
+    grid-template-columns: repeat(var(--image-count), 1fr);
+    height: 250px;    
+    border-top-left-radius: 40px 40px;
+    border-top-right-radius: 40px 40px;
+}
+
+.ContenidoMyR .contenedor-cards .txt_reportes{
+    padding-left: 50px;
+    padding-top: 10px;
+    border-bottom-right-radius: 40px 40px;
+    border-bottom-left-radius: 40px 40px;
+}
+/*Fin del estilo para los usuarios*/
 
 /* A partir de aqui empieza el modo claro*/
 .lightmode{
@@ -711,9 +885,9 @@ display: none;
 .lm #MR{
     color: #000000;
 }
-.lm .nav-links li:hover{
+/* .lm .nav-links li:hover{
     transform: scale(1.1);
-}
+} */
 .lm .nav-links a{
     color: #000000;
 }
@@ -788,4 +962,20 @@ display: none;
     background-color: #FFF;
     color: #000;
     border-color: #000;
+}
+.Lm_MyR{
+    background-color: #F6F6F6;
+}
+.Lm_MyR .Titulo_MyR {
+    background-color: transparent;
+    color: #031C39;
+    border: 2px solid black;
+}
+.Lm_MyR .card_misreportes {
+    background-color: #F6F6F6;
+    color: #000;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.15);
+}
+.lm nav ul .user-menu ul{
+    background-color: #031C39;
 }
