@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos y Condiciones - MyReport</title>
-
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +31,6 @@
         </svg>
     </a>
 </div>
-
     <body class="body-terminos">
         <div class="header-terminos">
             <h1 class = "titulo-terminos">TERMINOS Y CONDICONES MyReport</h1>
@@ -123,5 +120,4 @@
     </footer>
 </body>
 </html>
-
 
