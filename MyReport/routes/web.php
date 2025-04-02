@@ -29,6 +29,7 @@ Route::get('/resolvedMatters', function(){
     return view('resolvedMatters');
 });
 
+
 Route::get('/auth/google', [SocialiteController::class, 'redirectToGoogle']);
 Route::get('/auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
 

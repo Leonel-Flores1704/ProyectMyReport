@@ -99,12 +99,12 @@ body.claro .btn-S-P{
     cursor: pointer;
 }
 
-body.oscuro #app {
-    background-color: #000000;
+body.oscuro #app{
+    background-color: #000 !important;
 }
 
 body.oscuro{
-    background: #000000 !important;
+    background: #000 !important;
     transition: none;
 }
 
@@ -284,10 +284,10 @@ body.oscuro .btn-google-login:hover {
 }
 /* Capa de fondo borroso ovalada */
 body.oscuro .blur-oval-background {
-    background-color: #02ebcc; /* Color de fondo, puedes cambiarlo */
+    background-color: #02ebcc; /* Color de fondo */
     filter: blur(85px); /* Controla el nivel de desenfoque */
     height: 100vh; /* Altura */
-    width: 1.5%; /* Ancho más pequeño (30% de la pantalla) */
+    width: 1.5%; /* Ancho más pequeño */
     border-radius: 50%; /* Hace la forma ovalada */
     position: absolute;
     top: 50%; /* Centra verticalmente */
@@ -502,7 +502,6 @@ body.claro .btn-custom-2 {
 
 /* Efecto hover para los botones */
 body.claro .btn-custom-1:hover, .btn-custom-2:hover {
-    /* cursor: pointer; */
     box-shadow: 0 0 6px #696969;
 }
 
@@ -638,10 +637,10 @@ body.claro .parrafos-terminos{
 }
 
 body.claro .titulo-terminos {
-    font-size: 28px;        
-    color: #031327;           
-    text-align: center;     
-    font-weight: bold;     
+    font-size: 28px;
+    color: #031327;
+    text-align: center;
+    font-weight: bold;
     padding-top: 40px;
     padding-bottom: 40px;
     margin: 0%;
@@ -657,14 +656,11 @@ body.claro .header-terminos{
 
 /*estilos del footer */
 /* Estilos para el footer */
-/*edita tu el footer*/
 body.claro .footer-terminos{
     background-color: #031C39; /* Fondo oscuro */
     color: white; /* Texto en blanco */
     text-align: center;
     margin-top: 150px;
-    margin-left: -10px;
-    margin-right: -10px;
     margin-bottom: 0px;
     display: flex;
     align-items: center;
@@ -672,6 +668,7 @@ body.claro .footer-terminos{
     font-size: 10px;
     padding-top: 50px;
     padding-bottom: 50px;
+    width: 100%;
 }
 
 
@@ -716,9 +713,9 @@ body.claro .body-politica{
 
 body.claro .contenedor-botones {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     gap: 1200px;
-    padding: 10px; 
+    padding: 10px;
 }
 
 
@@ -751,10 +748,10 @@ body.oscuro  .parrafos-terminos{
 }
 
 body.oscuro  .titulo-terminos {
-    font-size: 28px;        
-    color: #FFFFFF;           
-    text-align: center;     
-    font-weight: bold;     
+    font-size: 28px;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
     padding-top: 40px;
     padding-bottom: 40px;
     margin: 0%;
@@ -772,19 +769,18 @@ body.oscuro  .header-terminos{
 /* Estilos para el footer */
 /*edita tu el footer*/
 body.oscuro  .footer-terminos{
-    background-color: #101010; /* Fondo oscuro */
+    background-color: #080808; /* Fondo oscuro */
     color: white; /* Texto en blanco */
     text-align: center;
     margin-top: 150px;
-    margin-left: -10px;
-    margin-right: -10px;
     margin-bottom: 0px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-size: 10px;
+    font-size: 10px !important;
     padding-top: 50px;
     padding-bottom: 50px;
+    width: 100%;
 }
 
 
@@ -830,9 +826,9 @@ body.oscuro  .body-politica{
 
 body.oscuro  .contenedor-botones {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     gap: 1200px;
-    padding: 10px; 
+    padding: 10px;
 }
 
 /*alineacion de los icoonos con el footer*/
@@ -842,12 +838,13 @@ body.oscuro  .contenedor-botones {
     gap: 8px; /* Espacio entre el icono y el texto */
 }
 
+
+
 /*estilos de la narvar de resolver matters*/
 body.claro .custom-navbar {
     background-color: #ffffff;
     padding-top: 15px;
     padding-bottom: 15px;
-    box-shadow: 0px 4px 6px #A2A2A2;
 }
 
 body.claro  .custom-navbar .navbar-brand {
@@ -869,7 +866,7 @@ body.oscuro .custom-navbar {
     background-color: #000000;
     padding-top: 15px;
     padding-bottom: 15px;
-    box-shadow: 0px 1px 10px #A2A2A2;
+    width: 100%;
 }
 
 body.oscuro .custom-navbar .navbar-brand {
@@ -893,14 +890,6 @@ body.oscuro .navbar-nav .nav-link {
     margin-bottom: 10px;
 }
 
-body.oscuro .body-resolvedMatters{
-    background-color: #101010;
-}
-
-body.claro .body-resolvedMatters{
-    background-color: #fff;
-}
-
 
 .tituloRM{
     padding-top: 10px;
@@ -913,13 +902,27 @@ body.claro .body-resolvedMatters{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100vw;
+    width: 99vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    max-width: 100%;
+    display: block;
 }
+
+.Fondo-RM {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    height: 100vh; /* Ocupa toda la pantalla */
+    text-align: center;
+    overflow: hidden; /* Evita que los elementos se desborden */
+}
+
 
 .overlay {
     position: absolute;
@@ -932,12 +935,14 @@ body.claro .body-resolvedMatters{
 
 .contenedor-cards {
     display: flex;
-    justify-content: space-around; 
-    flex-wrap: wrap; 
-    gap: 20px; 
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.Titulo-Resolved-matters{
+/*para el modo claro*/
+
+/* body.claro .Titulo-Resolved-matters{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -949,7 +954,124 @@ body.claro .body-resolvedMatters{
     font-weight: bold;
     font-size: 50px;
 }
-.subtitulo-Resolved-matters{
+body.claro .subtitulo-Resolved-matters{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    font-size: 20px;
+    max-width: 80%;
+    padding-top: 100px;
+} */
+
+/* Contenedor principal para centrar el texto */
+.contenedor-texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2; /* Asegura que el texto esté encima de la imagen */
+    color: white;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+/* Estilos del título */
+.Titulo-Resolved-matters {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0; /* Evita espacios adicionales */
+}
+
+/* Estilos del subtítulo */
+.subtitulo-Resolved-matters {
+    font-size: 20px;
+    margin-top: 10px; /* Espacio entre título y subtítulo */
+}
+
+/* 📱 Responsividad */
+@media (max-width: 768px) {
+    .Titulo-Resolved-matters {
+        font-size: 40px;
+    }
+    .subtitulo-Resolved-matters {
+        font-size: 18px;
+        margin-top: 8px;
+    }
+}
+
+
+body.claro .titulos-resolved-matters{
+    color: #031C39;
+    font-weight: bold;
+    font-size: 35px;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+body.claro .contenedor-cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 100px;
+    justify-content: center; /* Centrar el contenido */
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+body.claro .cards-body-resolvedMatters{
+    background-color: #F6F6F6;
+    border-radius: 0px 0px 50px 50px;
+    box-shadow: 0px 4px 10px #A2A2A2;
+    text-align: center;
+    padding: 20px;
+
+}
+
+body.claro .card-img-top{
+    border-radius: 50px 50px 0px 0px;
+
+}
+
+
+body.claro .boton-verMasRM{
+    background-color: #031327;
+    color: #ffffff;
+    border-radius: 50px;
+    padding: 8px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 1px solid #031C39;
+    font-weight: bold;
+    font-size: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave*/
+}
+
+
+/*para el modo oscuro */
+
+body.oscuro .Titulo-Resolved-matters{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    font-weight: bold;
+    font-size: 50px;
+}
+body.oscuro .subtitulo-Resolved-matters{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -961,9 +1083,9 @@ body.claro .body-resolvedMatters{
     padding-top: 100px;
 
 }
-.titulos-resolved-matters{
-    color: #031C39;
-    font-weight: bold;  
+body.oscuro .titulos-resolved-matters{
+    color: #ffffff;
+    font-weight: bold;
     font-size: 35px;
     align-items: center;
     text-align: center;
@@ -974,3 +1096,76 @@ body.claro .body-resolvedMatters{
     margin-top: 30px;
 }
 
+body.oscuro .contenedor-cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 100px;
+    justify-content: center; /* Centrar el contenido */
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+body.oscuro .cards-body-resolvedMatters{
+    background-color: #252525;
+    border-radius: 0px 0px 50px 50px;
+    text-align: center;
+    padding: 20px;
+}
+
+body.oscuro .card-img-top{
+    border-radius: 50px 50px 0px 0px;
+
+}
+
+body.oscuro .card-text{
+    color: #ffffff;
+}
+
+
+
+.centro-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+body.oscuro .boton-verMasRM{
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 50px;
+    padding: 8px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 1px solid #252525;
+    font-weight: bold;
+    font-size: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave*/
+}
+
+
+
+
+
+
+body.claro.body-resolvedMatters {
+    background-color: #FFFFFF;
+}
+body.oscuro.body-resolvedMatters {
+    background: #101010 !important;
+}
+
+
+.custom-navbar .navbar-nav .nav-link {
+    border-radius: 40px; /* Bordes redondeados */
+    transition: all 0.3s ease-in-out; /* Suaviza la transición */
+}
+
+body.oscuro .custom-navbar .navbar-nav .nav-link:hover {
+    background-color: #212020; /* Fondo blanco */
+}
+
+body.claro .custom-navbar .navbar-nav .nav-link:hover {
+    background-color: #D9D9D9;
+}
