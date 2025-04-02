@@ -3,22 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use App\Models\Administrador;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -27,6 +19,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/reports';
+
     /**
      * Create a new controller instance.
      *
@@ -35,5 +28,30 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function attemptLogin(Request $request)
+    {
+        // Intentar autenticar como usuario normal
+        if (Auth::guard('web')->attempt($this->credentials($request))) {
+            return true;
+        }
+
+        // Intentar autenticar como administrador
+        if (Auth::guard('admin')->attempt($this->credentials($request))) {
+            return true;
+        }
+
+        return false;
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        // Verificar si el usuario es un administrador o un usuario normal
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('administrador.index');
+        }
+
+        return redirect('/reports');
     }
 }

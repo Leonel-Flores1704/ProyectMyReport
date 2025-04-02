@@ -18,22 +18,27 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="/reports">Reports</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Resolved Matters</a></li>
-                <li id="icon_user">
-                    
+                <li><a href="/reports">Reportes</a></li>
+                <li><a href="#">Acerca de nosotros</a></li>
+                <li><a href="/resolvedMatters">Problemas Resueltos</a></li>
+                <li id="icon_user" class="user-menu">
                     @if (Auth::check())
-                        <!-- Si el usuario está autenticado, mostramos el botón de logout -->
-                        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                            @csrf
-                            <button type="submit" class="btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                                </svg>
-                            </button>
-                        </form>
+                        <div class="user-icon" onclick="toggleMenu()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                        </div>
+                        
+                        <ul class="submenu" id="submenu">
+                            <li id="corregir"><a href="/myreports">Mis Reportes</a></li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    <button type="submit" class="btn">Cerrar Sesión</button>
+                                </form>
+                            </li>
+                        </ul>
                     @else
                         <!-- Si no está autenticado, mostramos el botón de login -->
                         <a href="{{ route('login') }}" class="btn"><button>Log in</button></a>
@@ -43,7 +48,7 @@
         </nav>
         <label for="toggle" id="lbl_toggle">
             <div id="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
                     <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8m.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707"/>
                 </svg>
             </div>
@@ -53,7 +58,6 @@
         <!-- Aquí verificamos si el usuario está autenticado -->
 
     </header>
-
     <section class="Separacion" id="light_mode_report">
         <div class="recuadros">
             <div class="manual">
@@ -83,9 +87,25 @@
         </div>
         <div class="recuadros">
             <div class="campos">
+                @if (session('success'))
+                    <div id="successModal" class="modal-overlay">
+                        <div class="modal-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16" id="check">
+                                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                            </svg>
+                            <button id="closeModal">
+                                <p>Reporte Hecho</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16" id="paloma">
+                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                @endif
                 <form action="{{ route('reportes.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div id="fecha_lm">
+                    <div class="fecha" id="fecha_lm">
                         <p>Fecha de registro</p>
                         <input name ="fecha_reporte"type="date" id="fechaActual" readonly>
                     </div>
@@ -102,29 +122,27 @@
                     <h4 class="alineacion">Ubicación</h4>
                     <div class="radio_botones">
                         <div class="radio_group">
-                            <!-- <input type="radio" name="ubicacion_tiempo_real" id="TR" value="tiempo_real"> -->
-                            <input type="radio" name="ubicacion" id="TR">
+                            <input type="radio" name="ubicacion" id="TR" onclick="obtenerUbicacion()">
                             <label for="TR"></label>
                             <p>Ubicacion en tiempo real</p>
                         </div>
                         <div class="radio_group">
-                            <!-- <input type="radio" name="insertar_ubicacion" id="IB" value="insertada"> -->
                             <input type="radio" name="ubicacion" id="IB">
                             <label for="IB"></label>
                             <p>Insertar ubicacion</p>
                         </div>
                     </div>
-                    <!-- <div id="InsertarUbicacion"></div> -->
                     <div id="InsertarUbicacion" style="display: none;">
                         <h4 class="alineacion">Escoger entre ...</h4>
                         <select name="options" id="tipo" class="tipo_dm">
                             <option value="Colonia">Colonia o Fraccionamiento</option>
                             <option value="Boulevard">Boulevard o Carretera</option>
                         </select>
-                        <h4 class="alineacion" id="Nombre_" >Nombre de colonia o fraccionamiento</h4>
-                        <textarea name="colonia" id="NombreColonia" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
-                        <h4 class="alineacion">Nombre de la calle donde se encuentra</h4>
-                        <textarea name="calle" id="NombreCalle" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+                        <h4 class="alineacion" id="Nombre_">Nombre de colonia o fraccionamiento</h4>
+                        <textarea name="colonia_manual" id="NombreColonia" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+                        <h4 class="alineacion" id="NombreCalleSeEncuentra" style="display: block;">Nombre de la calle donde se encuentra</h4>
+                        <h4 class="alineacion" style="display: none;" id="ChooseBoulevard">Nombre de calle o boulevard a lado del que se encuentra</h4>
+                        <textarea name="calle_manual" id="NombreCalle" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
                         <div class="calles">
                             <div class="calle">
                                 <h4 class="alineacion">Entre calle 1</h4>
@@ -137,13 +155,15 @@
                         </div>
                     </div>
                     <div id="UbicacionTiempoReal" style="display: none;">
-                        <h4 class="alineacion">Nombre del Boulevard o Carretera</h4>
-                        <textarea name="descripcion_ubicacion" class="autoTextarea" rows="1" oninput="autoResize(this)" maxlength="100" placeholder="Maximo 100 caracteres"></textarea>
+                        <h4 class="alineacion">Su ubicacion actual</h4>
+                        <textarea id="ActualUbication" name="descripcion_ubicacion" class="autoTextarea" rows="1" oninput="autoResize(this)"></textarea>
+                        <input type="hidden" id="calle_actual" name="calle_actual">
+                        <input type="hidden" id="colonia_actual" name="colonia_actual">
                     </div>
                     <h4 class="alineacion">Descripcion de la ubicacion</h4>
-                    <textarea name="descripcion_ubicacion" class="autoTextarea" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
+                    <textarea name="descripcion_ubicacion" class="autoTextarea" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres" required></textarea>
                     <h4 class="alineacion">Descripcion de los hechos</h4>
-                    <textarea name= "descripcion_problematica" class="autoTextarea_" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres"></textarea>
+                    <textarea name= "descripcion_problematica" class="autoTextarea_" rows="1" oninput="autoResize(this)" maxlength="300" placeholder="Maximo 300 caracteres" required></textarea>
                     <h4 class="alineacion" id="idk">Sube hasta 3 imágenes:</h4>
                     <div class="centro">
                         <label for="imagen_referencia" class="custom-imagen_referencia" id="icon_img">
@@ -167,6 +187,7 @@
                         <button type="submit">Subir</button>
                     </div>
                 </form>
+                
             </div>
         </div>
     </section>

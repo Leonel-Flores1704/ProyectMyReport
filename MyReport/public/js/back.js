@@ -18,11 +18,13 @@ var InsertarUbicacion = document.getElementById("InsertarUbicacion") || null;
 var UbicacionTiempoReal = document.getElementById("UbicacionTiempoReal") || null;
 var icon_user = document.getElementById("icon_user") || null;
 var fecha_lm = document.getElementById("fecha_lm") || null;
+var MisReportes_lm = document.getElementById("MisReportes_lm") || null;
 const fechaActual = new Date();
 const año = fechaActual.getFullYear();
 const mes = String(fechaActual.getMonth() + 1).padStart(2, '0'); // El mes en JavaScript es indexado desde 0
 const dia = String(fechaActual.getDate()).padStart(2, '0');
 const fechaFormateada = `${año}-${mes}-${dia}`;
+
 // var titulo_m = document.getElementById("Titulo_manual") || null;
 function aplicarTema(modo) {
     
@@ -36,6 +38,7 @@ function aplicarTema(modo) {
     if (ft_lm) ft_lm.classList.toggle("footer_lm", modo === "claro");
     if (light_mode_report) light_mode_report.classList.toggle("recuadros_lm", modo === "claro");
     if (fecha_lm) fecha_lm.classList.toggle("fecha_lm", modo === "claro");
+    if (MisReportes_lm) MisReportes_lm.classList.toggle("Lm_MyR", modo === "claro");
     if (TLM) {
         TLM.classList.replace(modo === "claro" ? "Titulo" : "Titulo_lm", modo === "claro" ? "Titulo_lm" : "Titulo");
     };
@@ -85,10 +88,10 @@ function aplicarTema(modo) {
         };
     };
     localStorage.setItem("modo", modo);
-}
+};
 
 toggle.addEventListener("click", () => {
-    var nuevoModo = document.body.classList.contains("lightmode") ? "oscuro" : "claro";
+    let nuevoModo = document.body.classList.contains("lightmode") ? "oscuro" : "claro";
     aplicarTema(nuevoModo);
 });
 //Inicio codigo chatgpt
@@ -206,19 +209,92 @@ document.addEventListener("change", function (event) {
             document.getElementById("NombreCalle1").disabled = false;
             document.getElementById("NombreCalle2").disabled = false;
             document.getElementById("Nombre_").innerHTML = "Nombre de colonia o fraccionamiento";
+            document.getElementById("ChooseBoulevard").style.display="none";
+            document.getElementById("NombreCalleSeEncuentra").style.display="block"
         } else {
             document.getElementById("NombreCalle1").disabled = true;
             document.getElementById("NombreCalle2").disabled = true;
             document.getElementById("Nombre_").innerHTML = "Nombre de boulevard o carretera";
+            document.getElementById("ChooseBoulevard").style.display="block";
+            document.getElementById("NombreCalleSeEncuentra").style.display="none"
         };
     }; 
 });
-document.getElementById('fechaActual').value = fechaFormateada;
 
+//obtener ubicación actual
+function obtenerUbicacion() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        const latitud = position.coords.latitude;
+        const longitud = position.coords.longitude;
+        const apiKey = '3e3db0a0adf34a65aed8382eb93415df';
+
+        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitud}+${longitud}&key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+            if (data.results.length > 0) {
+                const location = data.results[0].components;
+
+                // Asignar valores a los campos ocultos
+                const calle = location.road || 'Desconocido';
+                const colonia = location.neighbourhood || location.suburb || 'Desconocido';
+
+                document.getElementById('calle_actual').value = calle;
+                document.getElementById('colonia_actual').value = colonia;
+
+                //alert(`Ubicación obtenida con éxito.\nCalle: ${calle}\nColonia: ${colonia}`);
+                const descripcionUbicacion = `Ubicación Actual: ${calle}, ${colonia}`;
+                document.getElementById('ActualUbication').value = descripcionUbicacion;
+            } else {
+                alert('No se pudo obtener la dirección. Inténtelo nuevamente.');
+            }
+            })
+            .catch(error => {
+            console.error('Error:', error);
+            alert('Error al obtener la ubicación.');
+            });
+        }, function(error) {
+        alert('Error al obtener la ubicación: ' + error.message);
+        });
+    } else {
+        alert('Tu navegador no soporta geolocalización.');
+    }
+};
+// Funcion para activar submenu
+function toggleMenu() {
+    const submenu = document.getElementById('submenu');
+    submenu.classList.toggle('active');
+}
+
+// Para cerrar el menú al hacer click fuera
+document.addEventListener('click', function(event) {
+    const userMenu = document.getElementById('icon_user');
+    const submenu = document.getElementById('submenu');
+
+    if (!userMenu.contains(event.target)) {
+        submenu.classList.remove('active');
+    }
+});
+// Fin
 document.addEventListener("DOMContentLoaded", function () {
-    var modoGuardado = localStorage.getItem("modo") || "oscuro"; 
+
+    let modoGuardado = localStorage.getItem("modo");
+    if (!modoGuardado) {
+        modoGuardado = "oscuro";
+    }
     aplicarTema(modoGuardado);
 
+    let fecha = document.getElementById("fechaActual");
+    if (fecha) {
+        fecha.value = fechaFormateada;
+    };
+
+    const closeModal = document.getElementById("closeModal");
+    if (closeModal) {
+        closeModal.addEventListener("click", function () {
+        document.getElementById("successModal").style.display = "none";
+        });
+    };    
     //codigo chatgpt
     const fileUpload = document.getElementById("imagen_referencia");
     const message = document.getElementById("uploadMessage");
@@ -254,4 +330,24 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     };
+    //Inicio para que los usuarios nomas vean 10 reportes y funcione el btn ver mas
+    const cards = document.querySelectorAll('.card_misreportes');
+    const verMasBtn = document.getElementById('verMas');
+    let visibleCards = 8;
+    cards.forEach((card, index) => {
+        if (index >= 8) card.style.display = 'none';
+    });
+    verMasBtn?.addEventListener('click', () => {
+        visibleCards += 8;
+        cards.forEach((card, index) => {
+            if (index < visibleCards) {
+                card.style.display = 'block';
+            }
+        });
+
+        // Ocultar el botón si ya no hay más cards
+        if (visibleCards >= cards.length) {
+            verMasBtn.style.display = 'none';
+        }
+    });
 });
