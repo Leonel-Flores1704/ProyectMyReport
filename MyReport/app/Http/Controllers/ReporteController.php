@@ -48,4 +48,19 @@ class ReporteController extends Controller
             return back()->with('error', 'Hubo un problema al guardar el reporte');
         }
     }
+
+    public function obtenerReportes()
+    {
+    $reportes = Reporte::where('estado', 'Completado')->get();
+
+    // Decodifica la imagen antes de enviarla
+    $reportes->transform(function ($reporte) {
+        $imagenes = json_decode($reporte->imagen_referencia, true); // Convierte el JSON en array
+        $reporte->imagen_referencia = $imagenes[0] ?? 'default.jpg'; // Usa la primera imagen o una por defecto
+        return $reporte;
+    });
+
+    return response()->json($reportes);
+    }
+
 }

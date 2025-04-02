@@ -51,7 +51,6 @@
         <div class="overlay"></div>
         <img src="{{ asset('/Imagenes/FondoRM.jpg') }}" alt="error" class="Fondo-resolvedMatters">
         
-        <!-- Contenedor del texto -->
         <div class="contenedor-texto">
             <h1 class="display-10 fw-bold">PROBLEMAS RESUELTOS</h1>
             <p class="lead">TRABAJAMOS POR UN DURANGO MEJOR</p>
