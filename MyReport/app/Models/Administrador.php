@@ -24,4 +24,7 @@ class Administrador extends Model implements Authenticatable{
         'password',
         'remember_token',
     ];
+    public function tipoReporte(){
+        return $this->belongsTo(TipoReporte::class, 'tipo_reporte_id');
+    }
 }
