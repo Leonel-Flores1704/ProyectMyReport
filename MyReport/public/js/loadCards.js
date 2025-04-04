@@ -1,98 +1,4 @@
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     const botonVerMas = document.getElementById("ver-mas");
-
-//     const categorias = {
-//         1: "B", 
-//         2: "S", 
-//         3: "F", 
-//         4: "P", 
-//         5: "T", 
-//         6: "A" 
-//     };
-
-//     let reportes = [];
-//     let indice = 0;
-
-//     function cargarReportes() {
-//         fetch('http://localhost/MyReport/public/api/reportes-resueltos')
-//             .then(response => response.json())
-//             .then(data => {
-//                 reportes = data;
-//                 if (reportes.length === 0) {
-//                     botonVerMas.disabled = true;
-//                     botonVerMas.innerText = "No hay problemas resueltos.";
-//                 }
-//             })
-//             .catch(error => console.error("Error al obtener los reportes:", error));
-//     }
-
-//     function mostrarMasReportes() {
-//         for (let i = 0; i < 3; i++) {
-//             if (indice >= reportes.length) {
-//                 botonVerMas.disabled = true;
-//                 botonVerMas.innerText = "No hay más problemas resueltos.";
-//                 return;
-//             }
-
-//             const reporte = reportes[indice];
-//             const tipoId = reporte.tipo_reporte_id;
-
-//             if (!categorias[tipoId]) {
-//                 console.warn(`No hay sección definida para tipo_reporte_id: ${tipoId}`);
-//                 indice++;
-//                 continue;
-//             }
-
-//             let imagenUrl = "/MyReport/public/storage/reporte/default.jpg";
-
-//             try {
-//                 let imagenes = reporte.imagen_referencia;
-
-//                 if (imagenes.startsWith("[")) {
-//                     imagenes = JSON.parse(imagenes);
-//                     if (Array.isArray(imagenes) && imagenes.length > 0) {
-//                         imagenUrl = `/MyReport/public/storage/${imagenes[0]}`;
-//                     }
-//                 } else {
-//                     imagenUrl = `/MyReport/public/storage/${imagenes}`;
-//                 }
-//             } catch (error) {
-//                 console.error("Error al procesar la imagen:", error);
-//             }
-
-//             let contenedor = document.querySelector(`.contenedor-cards-${categorias[tipoId]}`);
-
-//             if (!contenedor) {
-//                 console.warn(`No se encontró el contenedor para la categoría ${categorias[tipoId]}`);
-//                 indice++;
-//                 continue;
-//             }
-
-//             const card = document.createElement("div");
-//             card.className = "card-resovelM";
-//             card.style.width = "18rem";
-//             card.innerHTML = `
-//                 <img src="${imagenUrl}" class="card-img-top" alt="Imagen del reporte">
-//                 <div class="cards-body-resolvedMatters${categorias[tipoId]}">
-//                     <p class="card-text"><strong>Descripción:</strong> ${reporte.descripcion_problematica}</p>
-//                     <p class="card-text"><strong>Ubicación:</strong> Entre calle ${reporte.calle}, y calle ${reporte.colonia}</p>
-//                 </div>
-//             `;
-
-//             contenedor.appendChild(card);
-//             indice++;
-//         }
-//     }
-
-//     botonVerMas.addEventListener("click", mostrarMasReportes);
-//     cargarReportes();
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
-    const botonVerMas = document.getElementById("ver-mas");
-
-    // Mapeo de IDs de tipos de reporte a clases CSS y contenedores
     const categorias = {
         1: "B", // Baches
         2: "S", // Semáforos apagados
@@ -102,45 +8,59 @@ document.addEventListener("DOMContentLoaded", function () {
         6: "A"  // Alumbrado público
     };
 
-    let reportes = [];
-    let indices = {}; // Para controlar cuántos reportes se han mostrado por categoría
+    const reportesPorCategoria = {
+        B: [],
+        S: [],
+        F: [],
+        P: [],
+        T: [],
+        A: []
+    };
+
+    let indices = {
+        B: 0,
+        S: 0,
+        F: 0,
+        P: 0,
+        T: 0,
+        A: 0
+    };
 
     function cargarReportes() {
         fetch('http://localhost/MyReport/public/api/reportes-resueltos')
             .then(response => response.json())
             .then(data => {
-                reportes = data;
+                data.forEach(reporte => {
+                    const tipoId = reporte.tipo_reporte_id;
+                    const categoria = categorias[tipoId];
+                    if (categoria) {
+                        reportesPorCategoria[categoria].push(reporte);
+                    }
+                });
 
-                if (reportes.length === 0) {
-                    botonVerMas.disabled = true;
-                    botonVerMas.innerText = "No hay problemas resueltos.";
-                } else {
-                    Object.keys(categorias).forEach(id => {
-                        indices[id] = 0;
-                        mostrarMasReportes(id, 3); // Cargar 3 de cada tipo al inicio
-                    });
+                // Mostrar los primeros 3 por categoría
+                for (const cat in categorias) {
+                    mostrarReportes(categorias[cat]);
                 }
+
+                asignarEventosBotones(); // Aquí está la clave
             })
             .catch(error => console.error("Error al obtener los reportes:", error));
     }
 
-    function mostrarMasReportes(tipoId, cantidad = 3) {
-        const reportesFiltrados = reportes.filter(r => r.tipo_reporte_id == tipoId);
-        let indice = indices[tipoId] || 0;
-        const contenedor = document.querySelector(`.contenedor-cards-${categorias[tipoId]}`);
+    function mostrarReportes(cat) {
+        const contenedor = document.querySelector(`.contenedor-cards-${cat}`);
+        if (!contenedor) return;
 
-        if (!contenedor) {
-            console.warn(`No se encontró contenedor para tipo_reporte_id: ${tipoId}`);
-            return;
-        }
+        const reportes = reportesPorCategoria[cat];
+        const start = indices[cat];
+        const end = Math.min(start + 3, reportes.length);
 
-        let reportesAgregados = 0;
+        // Limpiar para no duplicar si deseas reemplazar los anteriores
+        // contenedor.innerHTML = ""; PARA ELIMINAR LAS CARDS QUE YA NO SE QUIEREN VER Y QYE ESTAN PORE DEFECTO.
 
-        for (let i = 0; i < cantidad; i++) {
-            if (indice >= reportesFiltrados.length) break;
-
-            const reporte = reportesFiltrados[indice];
-
+        for (let i = start; i < end; i++) {
+            const reporte = reportes[i];
             let imagenUrl = "/MyReport/public/storage/reporte/default.jpg";
 
             try {
@@ -162,37 +82,38 @@ document.addEventListener("DOMContentLoaded", function () {
             card.style.width = "18rem";
             card.innerHTML = `
                 <img src="${imagenUrl}" class="card-img-top" alt="Imagen del reporte">
-                <div class="cards-body-resolvedMatters${categorias[tipoId]}">
+                <div class="cards-body-resolvedMatters${cat}">
                     <p class="card-text"><strong>Descripción:</strong> ${reporte.descripcion_problematica}</p>
                     <p class="card-text"><strong>Ubicación:</strong> Entre calle ${reporte.calle}, y calle ${reporte.colonia}</p>
                 </div>
             `;
+            card.style.animationDelay = `${(i - start) * 0.1}s`; // Delay incremental
 
             contenedor.appendChild(card);
-            indice++;
-            reportesAgregados++;
         }
 
-        indices[tipoId] = indice; // Actualizar el índice
+        // Actualizar índice
+        indices[cat] = end;
 
-        return reportesAgregados; // Retorna cuántos reportes se agregaron
-    }
-
-    function cargarMasReportes() {
-        let totalAgregados = 0;
-
-        Object.keys(categorias).forEach(id => {
-            totalAgregados += mostrarMasReportes(id, 3);
-        });
-
-        // Si ya no hay más reportes en ninguna categoría, deshabilitar el botón
-        if (totalAgregados === 0) {
-            botonVerMas.disabled = true;
-            botonVerMas.innerText = "No hay más problemas resueltos.";
+        // Verificar si ya no hay más
+        const boton = document.getElementById(`ver-mas-${cat}`);
+        if (boton) {
+            if (indices[cat] >= reportes.length) {
+                boton.disabled = true;
+                boton.textContent = "No hay más reportes";
+            }
         }
     }
 
-    botonVerMas.addEventListener("click", cargarMasReportes);
-
-    cargarReportes(); // Cargar reportes al inicio
+    function asignarEventosBotones() {
+        for (const cat of Object.values(categorias)) {
+            const boton = document.getElementById(`ver-mas-${cat}`);
+            if (boton) {
+                boton.addEventListener("click", () => {
+                    mostrarReportes(cat); // Mostrar siguientes 3
+                });
+            }
+        }
+    }
+    cargarReportes();
 });
