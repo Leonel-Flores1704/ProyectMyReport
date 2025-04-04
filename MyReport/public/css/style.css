@@ -25,8 +25,9 @@ footer{
     justify-content: flex-end;
     align-items: center;
     height: 85px;
-    padding: 5px 10%;
+    padding: 5px;
 }
+
 .navegador #MR{
     color: white;
     font-size: 24px;
@@ -37,7 +38,7 @@ footer{
 .navegador .logo{
     display: flex;
     justify-content: flex-start;
-    margin-left: -100px;
+    /* margin-left: -100px; */
     margin-top: -15px;
     cursor: pointer;
     margin-right: auto;
@@ -54,7 +55,7 @@ footer{
 }
 .navegador .nav-links li{
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 10px;
     margin-top: 15px;
 }
 .navegador .nav-links form button{
@@ -66,12 +67,9 @@ footer{
     margin-left: -10px;
     margin-top: -5px;
 }
-/* .navegador .nav-links li:hover{
-    transform: scale(1.1);
-} */
 .navegador .nav-links a{
-    display: inline-block;
-    padding: 0 20px;
+    /* display: inline-block; */
+    padding: 0 15px;
     font-size: 20px;
     color: white;
     text-decoration: none;
@@ -80,6 +78,21 @@ footer{
     background-color: white;
     border-radius: 60px;
     color: black;
+}
+.navegador .nav-links{
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    gap: 15px; /* Espacio entre elementos */
+}
+#icon_user {
+    display: flex;
+    align-items: center;
+    margin-left: -30px;
+}
+#cambiar_modo__ {
+    display: flex;
+    align-items: center;
+    margin-left: -30px;
 }
 .navegador .nav-links #icon_user a:hover{
     background-color: black;
@@ -676,10 +689,8 @@ display: none;
     display: none;
 }
 #lbl_toggle{
-    position: absolute;
-    right: 95px;
-    font-size: 50px;
-    
+    right: 0px;
+    /* font-size: 50px; */
 }
 #lbl_toggle i{
     color: #fff;
@@ -908,12 +919,12 @@ display: none;
     background-color: white;
 }
 .nFondo{
-    background: url("https://media.istockphoto.com/id/895120000/es/foto/peligroso-bache-en-el-camino-rural-asfaltado-da%C3%B1os-de-la-carretera.jpg?s=2048x2048&w=is&k=20&c=nBCKYeHGQ1hGUz6XeAtCJQ14awWOgQkI1B20xjTGIHo=") center/cover no-repeat;
+    background: url("https://static.vecteezy.com/system/resources/thumbnails/051/539/460/small_2x/a-large-pothole-filled-with-water-on-a-paved-road-surface-photo.jpg") center/cover no-repeat;
     transition: all 1.2s ease;
 }
 .nFondo::before{
     transition: all 1.2s ease;
-    background: rgba(0, 0, 0, 0.3); /* Oscurece la imagen */
+    background: rgba(0, 0, 0, 0.7); /* Oscurece la imagen */
 }
 .nFondo .boton{
     background: rgba(255, 255, 255, 0.85);

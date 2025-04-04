@@ -33,8 +33,6 @@ Route::get('/resolvedMatters', function(){
 Route::get('/auth/google', [SocialiteController::class, 'redirectToGoogle']);
 Route::get('/auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
 
-
-
 Auth::routes();
 
 

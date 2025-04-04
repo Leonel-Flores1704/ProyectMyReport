@@ -20,7 +20,10 @@
                     <li>
                         <a href="">
                         @foreach ($administradores as $admin)
-                            <p>Datos: {{ $admin->tipo_reporte_id }}</p>
+                            <p>
+                                {{ $admin->tipoReporte->nombre }}
+                                <!-- Pone que tipo de problematica se encarga -->
+                            </p>
                         @endforeach
                         </a>
                     </li>
