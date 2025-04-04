@@ -238,6 +238,7 @@ body.oscuro .btn-custom-1 {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    
 }
 
 body.oscuro .btn-custom-2 {
@@ -441,10 +442,9 @@ body.claro .form-group.row.mb-0.justify-content-center {
 
 /* Efecto hover en el botón */
 body.claro .btn-primary1:hover {
-    background-color: #031327;
-    color: #fff;
-    box-shadow: 0 0 10px #129cdb;
-    /* box-shadow: #0c1b70; */
+    box-shadow: 0 0 10px rgba(3, 19, 39, 0.8);
+    background-color: #0a1f48;
+    transform: scale(1.05);
 }
 
 
@@ -502,7 +502,8 @@ body.claro .btn-custom-2 {
 
 /* Efecto hover para los botones */
 body.claro .btn-custom-1:hover, .btn-custom-2:hover {
-    box-shadow: 0 0 6px #696969;
+    box-shadow: 0 0 10px rgba(3, 19, 39, 0.8);
+    background-color: #0a1f48;
 }
 
 /* Estilo personalizado para el botón de Google */
@@ -540,7 +541,7 @@ body.claro .btn-google-login:hover {
     background-color: #031C39; /* Cambia el fondo */
     color: #ffff; /* Cambia el color del texto */
     cursor: pointer;
-
+    transform: scale(1.05);
 }
 /* Capa de fondo borroso ovalada */
 
@@ -942,29 +943,6 @@ body.oscuro .navbar-nav .nav-link {
 
 /*para el modo claro*/
 
-/* body.claro .Titulo-Resolved-matters{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    color: #fff;
-    padding-bottom: 100px;
-    padding-top: 100px;
-    font-weight: bold;
-    font-size: 50px;
-}
-body.claro .subtitulo-Resolved-matters{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    color: white;
-    font-size: 20px;
-    max-width: 80%;
-    padding-top: 100px;
-} */
 
 /* Contenedor principal para centrar el texto */
 .contenedor-texto {
@@ -993,7 +971,7 @@ body.claro .subtitulo-Resolved-matters{
     margin-top: 10px; /* Espacio entre título y subtítulo */
 }
 
-/* 📱 Responsividad */
+
 @media (max-width: 768px) {
     .Titulo-Resolved-matters {
         font-size: 40px;
@@ -1028,17 +1006,10 @@ body.claro .contenedor-cards {
 }
 
 
-body.claro .cards-body-resolvedMatters{
-    background-color: #F6F6F6;
-    border-radius: 0px 0px 50px 50px;
-    box-shadow: 0px 4px 10px #A2A2A2;
-    text-align: center;
-    padding: 20px;
-
-}
 
 body.claro .card-img-top{
     border-radius: 50px 50px 0px 0px;
+    box-shadow:0px 1px 10px#A2A2A2;
 
 }
 
@@ -1105,16 +1076,70 @@ body.oscuro .contenedor-cards {
     padding-right: 100px;
 }
 
-body.oscuro .cards-body-resolvedMatters{
+body.oscuro .cards-body-resolvedMattersB{   
     background-color: #252525;
     border-radius: 0px 0px 50px 50px;
     text-align: center;
     padding: 20px;
+    box-shadow:0px 1px 10px#000000;
+
 }
+body.oscuro .cards-body-resolvedMattersS{   
+    background-color: #252525;
+    border-radius: 0px 0px 50px 50px;
+    text-align: center;
+    padding: 20px;
+    box-shadow:0px 1px 10px#000000;
+
+}
+body.oscuro .cards-body-resolvedMattersF{   
+    background-color: #252525;
+    border-radius: 0px 0px 50px 50px;
+    text-align: center;
+    padding: 20px;
+    box-shadow:0px 1px 10px#000000;
+
+}
+body.oscuro .cards-body-resolvedMattersP{   
+    background-color: #252525;
+    border-radius: 0px 0px 50px 50px;
+    text-align: center;
+    padding: 20px;
+    box-shadow:0px 1px 10px#000000;
+
+}
+body.oscuro .cards-body-resolvedMattersT{   
+    background-color: #252525;
+    border-radius: 0px 0px 50px 50px;
+    text-align: center;
+    padding: 20px;
+    box-shadow:0px 1px 10px#000000;
+
+}
+body.oscuro .cards-body-resolvedMattersA{   
+    background-color: #252525;
+    border-radius: 0px 0px 50px 50px;
+    text-align: center;
+    padding: 20px;
+    box-shadow:0px 1px 10px#000000;
+
+}
+
+
+body.claro .cards-body-resolvedMattersB, .cards-body-resolvedMattersS, .cards-body-resolvedMattersF, .cards-body-resolvedMattersP, .cards-body-resolvedMattersT, .cards-body-resolvedMattersA{   
+    background-color: #ffffff;
+    border-radius: 0px 0px 50px 50px;
+    text-align: center;
+    padding: 20px;
+    box-shadow:0px 1px 10px#A2A2A2;
+
+}
+
+
 
 body.oscuro .card-img-top{
     border-radius: 50px 50px 0px 0px;
-
+    box-shadow:0px 1px 10px#000000;
 }
 
 body.oscuro .card-text{
@@ -1144,7 +1169,17 @@ body.oscuro .boton-verMasRM{
     transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave*/
 }
 
+body.oscuro .boton-verMasRM:hover{
+    box-shadow: 0 0 10px #fff;
+    background-color: #080808; 
+    transform: scale(1.05); 
+}
 
+body.claro .boton-verMasRM:hover{
+    box-shadow: 0 0 10px rgba(3, 19, 39, 0.8);
+    background-color: #0a1f48;
+    transform: scale(1.05);
+}
 
 
 
