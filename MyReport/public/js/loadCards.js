@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const start = indices[cat];
         const end = Math.min(start + 3, reportes.length);
 
-        // Limpiar para no duplicar si deseas reemplazar los anteriores
         // contenedor.innerHTML = ""; PARA ELIMINAR LAS CARDS QUE YA NO SE QUIEREN VER Y QYE ESTAN PORE DEFECTO.
 
         for (let i = start; i < end; i++) {

@@ -78,10 +78,6 @@ body.claro .btn-S-P{
 }
 
 
-
-
-
-
 /*stilos del registro e iniiciar secion inicio*/
 /*dark mode*/
 /* Estilos para la tarjeta que contiene el formulario */
@@ -366,8 +362,6 @@ body.oscuro .blur-oval-background-center-L {
 
 
 
-
-
 /*aqui empieza lo del modo blanco*/
 /*stilos del registro e iniiciar secion inicio*/
 
@@ -563,7 +557,6 @@ body.claro #app {
     background-color: #E0E0E0 !important;
 }
 body.claro {
-    /* background-color: #E0E0E0 !important; */
     background: #E0E0E0 !important;
     transition: none;
 }
@@ -1195,12 +1188,12 @@ body.oscuro.body-resolvedMatters {
 
 
 .custom-navbar .navbar-nav .nav-link {
-    border-radius: 40px; /* Bordes redondeados */
-    transition: all 0.3s ease-in-out; /* Suaviza la transición */
+    border-radius: 40px; 
+    transition: all 0.3s ease-in-out;
 }
 
 body.oscuro .custom-navbar .navbar-nav .nav-link:hover {
-    background-color: #212020; /* Fondo blanco */
+    background-color: #212020; 
 }
 
 body.claro .custom-navbar .navbar-nav .nav-link:hover {
